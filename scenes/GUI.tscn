@@ -1,0 +1,381 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://basic_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/interface/GUI.gd" type="Script" id=2]
+[ext_resource path="res://gfx/MenuButtons/f1.png" type="Texture" id=3]
+[ext_resource path="res://scripts/interface/HighlightButton.gd" type="Script" id=4]
+[ext_resource path="res://gfx/MenuButtons/f2.png" type="Texture" id=5]
+[ext_resource path="res://gfx/CompanyLogos/001Player.png" type="Texture" id=6]
+[ext_resource path="res://font/LatoWeb-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://gfx/edit_pencil-01.png" type="Texture" id=8]
+[ext_resource path="res://font/LatoWeb-Italic.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 9 )
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+left_side_menu_path = NodePath("Left Side Menu")
+f1_company_logo_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/CompanyLogo")
+f1_company_name_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/NameRow/CompanyName")
+f1_company_subtitle_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/SubtitleRow/CompanySubtitle")
+f1_company_brand_strength_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats/Brand Strength Value")
+f1_company_net_worth_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats/Net Worth Value")
+f1_sabotage_button_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Interaction Buttons/Sabotage Button")
+f1_income_tree_path = NodePath("Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Income & Expenditure/Income Tree")
+f1_expenditure_tree_path = NodePath("Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Income & Expenditure/Expenditure Tree")
+f1_balance_path = NodePath("Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Balance/Balance Value")
+f1_growth_path = NodePath("Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Growth/Growth Value")
+f1_outlet_tree_path = NodePath("Left Side Menu/Company/VSplitContainer/Tabs/Outlets/ScrollContainer/Outlet Tree")
+rename_dialog_path = NodePath("Rename Dialog")
+rename_dialog_text_path = NodePath("Rename Dialog/VBoxContainer/LineEdit")
+
+[node name="Top Menu" type="PanelContainer" parent="."]
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 122.0
+margin_bottom = 65.0
+
+[node name="Margins" type="Control" parent="Top Menu"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 119.0
+margin_bottom = 62.0
+
+[node name="Menu Buttons" type="HBoxContainer" parent="Top Menu/Margins"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+
+[node name="F1" type="TextureButton" parent="Top Menu/Margins/Menu Buttons"]
+margin_right = 49.0
+margin_bottom = 51.0
+hint_tooltip = "Your Company [F1]"
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="F2" type="TextureButton" parent="Top Menu/Margins/Menu Buttons"]
+margin_left = 53.0
+margin_right = 103.0
+margin_bottom = 51.0
+hint_tooltip = "Finance [F2]"
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 5 )
+script = ExtResource( 4 )
+
+[node name="Left Side Menu" type="TabContainer" parent="."]
+margin_top = 62.0
+margin_right = 415.0
+margin_bottom = 609.0
+tab_align = 0
+tabs_visible = false
+
+[node name="Company" type="Tabs" parent="Left Side Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Left Side Menu/Company"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+split_offset = 200
+
+[node name="Main Window (Scrollbars)" type="ScrollContainer" parent="Left Side Menu/Company/VSplitContainer"]
+margin_right = 407.0
+margin_bottom = 200.0
+
+[node name="Main Window Item Listing" type="VBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)"]
+margin_right = 407.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
+
+[node name="CompanyInfo" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing"]
+editor/display_folded = true
+margin_right = 407.0
+margin_bottom = 62.0
+custom_constants/separation = 16
+
+[node name="CompanyLogo" type="TextureRect" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo"]
+margin_right = 62.0
+margin_bottom = 62.0
+texture = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo"]
+margin_left = 78.0
+margin_right = 329.0
+margin_bottom = 62.0
+
+[node name="NameRow" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer"]
+margin_right = 251.0
+margin_bottom = 30.0
+custom_constants/separation = 16
+alignment = 2
+
+[node name="CompanyName" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/NameRow"]
+margin_right = 219.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 1 )
+text = "Chicken Rice Nation"
+
+[node name="RenameButton" type="TextureButton" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/NameRow"]
+margin_left = 235.0
+margin_right = 251.0
+margin_bottom = 30.0
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 8 )
+script = ExtResource( 4 )
+mouse_over_color = Color( 1, 1, 1, 1 )
+
+[node name="SubtitleRow" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer"]
+margin_top = 34.0
+margin_right = 251.0
+margin_bottom = 56.0
+
+[node name="CompanySubtitle" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/SubtitleRow"]
+margin_right = 111.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 2 )
+text = "Your Company"
+
+[node name="Stats" type="GridContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing"]
+editor/display_folded = true
+margin_top = 78.0
+margin_right = 407.0
+margin_bottom = 158.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/hseparation = 16
+columns = 2
+
+[node name="Brand Strength Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
+margin_right = 111.0
+margin_bottom = 20.0
+text = "Brand Strength:"
+
+[node name="Brand Strength Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
+margin_left = 127.0
+margin_right = 159.0
+margin_bottom = 20.0
+text = "NaN"
+
+[node name="Net Worth Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
+margin_top = 24.0
+margin_right = 111.0
+margin_bottom = 44.0
+text = "Net Worth:"
+
+[node name="Net Worth Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
+margin_left = 127.0
+margin_top = 24.0
+margin_right = 159.0
+margin_bottom = 44.0
+text = "NaN"
+
+[node name="Interaction Buttons" type="VBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing"]
+margin_top = 174.0
+margin_right = 407.0
+margin_bottom = 200.0
+
+[node name="Sabotage Button" type="Button" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Interaction Buttons"]
+margin_right = 407.0
+margin_bottom = 26.0
+hint_tooltip = "Spend 1 AP to Sabotage this Company's operations. This will give you a random opportunity to reduce their Quarterly Balance or inflict a negative Modifier on one of their Outlets."
+text = "Sabotage [1 AP]"
+
+[node name="Tabs" type="TabContainer" parent="Left Side Menu/Company/VSplitContainer"]
+margin_top = 212.0
+margin_right = 407.0
+margin_bottom = 535.0
+tab_align = 0
+
+[node name="Finances" type="Tabs" parent="Left Side Menu/Company/VSplitContainer/Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Balance Sheet (Scroll)" type="ScrollContainer" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Balance Sheet" type="VBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)"]
+margin_right = 399.0
+margin_bottom = 281.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Income & Expenditure" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet"]
+margin_right = 399.0
+margin_bottom = 233.0
+size_flags_vertical = 3
+
+[node name="Income Tree" type="Tree" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Income & Expenditure"]
+margin_right = 197.0
+margin_bottom = 233.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+hide_root = true
+
+[node name="Expenditure Tree" type="Tree" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Income & Expenditure"]
+margin_left = 201.0
+margin_right = 399.0
+margin_bottom = 233.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+hide_root = true
+
+[node name="Balance" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet"]
+margin_top = 237.0
+margin_right = 399.0
+margin_bottom = 257.0
+
+[node name="Balance Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Balance"]
+margin_right = 337.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Last Quarterly Balance:"
+
+[node name="Balance Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Balance"]
+margin_left = 341.0
+margin_right = 399.0
+margin_bottom = 20.0
+size_flags_vertical = 1
+text = "+$100.0"
+align = 2
+
+[node name="Growth" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet"]
+margin_top = 261.0
+margin_right = 399.0
+margin_bottom = 281.0
+
+[node name="Growth Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Growth"]
+margin_right = 351.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Last Quarterly Growth:"
+
+[node name="Growth Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Growth"]
+margin_left = 355.0
+margin_right = 399.0
+margin_bottom = 20.0
+size_flags_vertical = 1
+text = "+1.0%"
+align = 2
+
+[node name="Outlets" type="Tabs" parent="Left Side Menu/Company/VSplitContainer/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Left Side Menu/Company/VSplitContainer/Tabs/Outlets"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Outlet Tree" type="Tree" parent="Left Side Menu/Company/VSplitContainer/Tabs/Outlets/ScrollContainer"]
+margin_right = 399.0
+margin_bottom = 281.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+hide_root = true
+
+[node name="Marketing" type="Tabs" parent="Left Side Menu/Company/VSplitContainer/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Modifiers" type="Tabs" parent="Left Side Menu/Company/VSplitContainer/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 38.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Finance" type="Tabs" parent="Left Side Menu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Rename Dialog" type="AcceptDialog" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -186.5
+margin_top = -74.0
+margin_right = 186.5
+margin_bottom = 74.0
+window_title = "Rename"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Rename Dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -42.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="Rename Dialog/VBoxContainer"]
+margin_top = 16.0
+margin_right = 357.0
+margin_bottom = 36.0
+text = "Enter a new name."
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="Rename Dialog/VBoxContainer"]
+margin_top = 52.0
+margin_right = 357.0
+margin_bottom = 82.0
+text = "Chicken Rice Nation"
+align = 1
+[connection signal="mouse_entered" from="Top Menu/Margins/Menu Buttons/F1" to="Top Menu/Margins/Menu Buttons/F1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Top Menu/Margins/Menu Buttons/F1" to="Top Menu/Margins/Menu Buttons/F1" method="_on_mouse_exited"]
+[connection signal="pressed" from="Top Menu/Margins/Menu Buttons/F1" to="." method="_on_menu_button" binds= [ 0 ]]
+[connection signal="mouse_entered" from="Top Menu/Margins/Menu Buttons/F2" to="Top Menu/Margins/Menu Buttons/F2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Top Menu/Margins/Menu Buttons/F2" to="Top Menu/Margins/Menu Buttons/F2" method="_on_mouse_exited"]
+[connection signal="pressed" from="Top Menu/Margins/Menu Buttons/F2" to="." method="_on_menu_button" binds= [ 1 ]]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://basic_theme.tres" type="Theme" id=1]
+[ext_resource path="res://gfx/Mall_Unselected.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Mall.gd" type="Script" id=3]
+[ext_resource path="res://gfx/Mall_Selected.png" type="Texture" id=4]
+[ext_resource path="res://basic_tooltip.tres" type="StyleBox" id=5]
+
+[node name="Mall" type="TextureButton"]
+margin_left = -16.0
+margin_top = -37.0
+margin_right = 16.0
+rect_pivot_offset = Vector2( 16, 37 )
+theme = ExtResource( 1 )
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 2 )
+script = ExtResource( 3 )
+deselected_texture = ExtResource( 2 )
+selected_texture = ExtResource( 4 )
+name_panel_path = NodePath("NamePanel")
+name_text_path = NodePath("NamePanel/NameText")
+
+[node name="NamePanel" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.5
+margin_top = 25.2248
+margin_right = 40.5
+margin_bottom = 51.2248
+grow_horizontal = 2
+mouse_filter = 2
+custom_styles/panel = ExtResource( 5 )
+
+[node name="NameText" type="Label" parent="NamePanel"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 82.0
+margin_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Mall Name"
+align = 1
+valign = 1
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_Mall_pressed"]

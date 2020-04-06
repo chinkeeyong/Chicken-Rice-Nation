@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/interface/CameraMovement.gd" type="Script" id=1]
+[ext_resource path="res://gfx/map-01.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Objects/Company.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gfx/CompanyLogos/001Player.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Mall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=6]
+
+[node name="Game" type="Node"]
+
+[node name="Main Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 2.3, 2.3 )
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+script = ExtResource( 1 )
+max_zoom = 2.3
+position_lerp_amount = 10.0
+zoom_lerp_amount = 10.0
+map_texture = ExtResource( 2 )
+malls_path = NodePath("../Malls")
+
+[node name="Map" type="TextureRect" parent="."]
+margin_left = -2432.0
+margin_top = -2206.0
+margin_right = 2433.0
+margin_bottom = 2206.0
+rect_pivot_offset = Vector2( 2432, 2206 )
+mouse_filter = 0
+texture = ExtResource( 2 )
+
+[node name="Companies" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="PlayerCompany" parent="Companies" instance=ExtResource( 3 )]
+company_name = "Chicken Rice Nation"
+subtitle = "Your Company"
+logo = ExtResource( 4 )
+is_player_controlled = true
+
+[node name="Malls" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Mall" parent="Malls" instance=ExtResource( 5 )]
+
+[node name="GUI Canvas Layer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="GUI Canvas Layer" instance=ExtResource( 6 )]
+camera_path = NodePath("../../Main Camera")
+player_company_path = NodePath("../../Companies/PlayerCompany")
+map_path = NodePath("../../Map")
+malls_path = NodePath("../../Malls")
+f1_income_tree_sales_tooltip = "Sales Income is earned every quarter from each Customer at each of a Company's Outlets."
+f1_income_tree_other_tooltip = "Other Income sources include Sabotage and random Events."
+f1_expenditure_tree_rental_tooltip = "Rental Expenditure is deducted every quarter for each of a Company's Outlets according to their Rental Cost."
+f1_expenditure_tree_other_tooltip = "Other Expenditure sources include Sabotage and random Events."
+[connection signal="gui_input" from="Map" to="Main Camera" method="_on_Map_input_event"]
+[connection signal="gui_input" from="Map" to="GUI Canvas Layer/GUI" method="_on_Map_input_event"]
