@@ -1,7 +1,5 @@
 extends Node
 
-
-export var company_name = "No Company Name"
 export var subtitle = "No Subtitle"
 export(Texture) var logo
 

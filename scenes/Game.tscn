@@ -11,46 +11,272 @@
 
 [node name="Main Camera" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 2.3, 2.3 )
 drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 script = ExtResource( 1 )
-max_zoom = 2.3
+zoom_speed = 0.7
+max_zoom = 5.0
 position_lerp_amount = 10.0
 zoom_lerp_amount = 10.0
 map_texture = ExtResource( 2 )
 malls_path = NodePath("../Malls")
 
 [node name="Map" type="TextureRect" parent="."]
-margin_left = -2432.0
-margin_top = -2206.0
-margin_right = 2433.0
-margin_bottom = 2206.0
-rect_pivot_offset = Vector2( 2432, 2206 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -5825.0
+margin_top = -4952.0
+margin_right = 3905.0
+margin_bottom = 3873.0
+rect_pivot_offset = Vector2( 4865, 4412 )
 mouse_filter = 0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Companies" type="Node" parent="."]
-editor/display_folded = true
 
-[node name="PlayerCompany" parent="Companies" instance=ExtResource( 3 )]
-company_name = "Chicken Rice Nation"
+[node name="Chicken Rice Nation" parent="Companies" instance=ExtResource( 3 )]
 subtitle = "Your Company"
 logo = ExtResource( 4 )
 is_player_controlled = true
 
 [node name="Malls" type="Node" parent="."]
-editor/display_folded = true
 
-[node name="Mall" parent="Malls" instance=ExtResource( 5 )]
+[node name="Dempsey Hill" parent="Malls" instance=ExtResource( 5 )]
+margin_left = -317.089
+margin_top = 749.167
+margin_right = -285.089
+margin_bottom = 786.167
+
+[node name="Tanglin Mall" parent="Malls" instance=ExtResource( 5 )]
+margin_left = -160.008
+margin_top = 806.287
+margin_right = -128.008
+margin_bottom = 843.287
+
+[node name="Lucky Plaza" parent="Malls" instance=ExtResource( 5 )]
+margin_left = -84.1979
+margin_top = 807.19
+margin_right = -52.1979
+margin_bottom = 844.19
+
+[node name="Paragon" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 16.8476
+margin_top = 810.567
+margin_right = 48.8476
+margin_bottom = 847.567
+
+[node name="Ngee Ann City" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 1.86508
+margin_top = 849.695
+margin_right = 33.8651
+margin_bottom = 886.695
+
+[node name="Centrepoint" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 50.4378
+margin_top = 820.023
+margin_right = 82.4378
+margin_bottom = 857.023
+
+[node name="Takashimaya" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 31.6354
+margin_top = 861.706
+margin_right = 63.6354
+margin_bottom = 898.706
+
+[node name="Orchard Central" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 101.922
+margin_top = 877.993
+margin_right = 133.922
+margin_bottom = 914.993
+
+[node name="313" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 66.1403
+margin_top = 870.773
+margin_right = 98.1403
+margin_bottom = 907.773
+
+[node name="Plaza Singapura" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 150.618
+margin_top = 879.798
+margin_right = 182.618
+margin_bottom = 916.798
+
+[node name="The Cathay" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 186.775
+margin_top = 892.628
+margin_right = 218.775
+margin_bottom = 929.628
+
+[node name="Bugis Junction" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 294.904
+margin_top = 896.363
+margin_right = 326.904
+margin_bottom = 933.363
+
+[node name="Raffles City" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 269.95
+margin_top = 928.756
+margin_right = 301.95
+margin_bottom = 965.756
+
+[node name="Suntec City" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 367.178
+margin_top = 927.612
+margin_right = 399.178
+margin_bottom = 964.612
+
+[node name="Marina Square" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 310.786
+margin_top = 978.19
+margin_right = 342.786
+margin_bottom = 1015.19
+
+[node name="Capitol" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 239.489
+margin_top = 951.502
+margin_right = 271.489
+margin_bottom = 988.502
+
+[node name="UE Square" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 108.305
+margin_top = 960.786
+margin_right = 140.305
+margin_bottom = 997.786
+
+[node name="Robertson Walk" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 70.9814
+margin_top = 974.782
+margin_right = 102.981
+margin_bottom = 1011.78
+
+[node name="Great World City" parent="Malls" instance=ExtResource( 5 )]
+margin_left = -17.3533
+margin_top = 963.081
+margin_right = 14.6467
+margin_bottom = 1000.08
+
+[node name="Valley Point" parent="Malls" instance=ExtResource( 5 )]
+margin_left = -85.8958
+margin_top = 965.646
+margin_right = -53.8958
+margin_bottom = 1002.65
+
+[node name="Funan Mall" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 215.609
+margin_top = 989.945
+margin_right = 247.609
+margin_bottom = 1026.94
+
+[node name="Liang Court" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 138.63
+margin_top = 988.778
+margin_right = 170.63
+margin_bottom = 1025.78
+
+[node name="Clarke Quay" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 176.073
+margin_top = 1020.16
+margin_right = 208.073
+margin_bottom = 1057.16
+
+[node name="People's Park Complex" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 103.856
+margin_top = 1060.34
+margin_right = 135.856
+margin_bottom = 1097.34
+
+[node name="Tiong Bahru Plaza" parent="Malls" instance=ExtResource( 5 )]
+margin_left = -80.508
+margin_top = 1039.59
+margin_right = -48.508
+margin_bottom = 1076.59
+
+[node name="One Raffles Place" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 224.856
+margin_top = 1100.34
+margin_right = 256.856
+margin_bottom = 1137.34
+
+[node name="Marina Bay Sands" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 338.984
+margin_top = 1129.15
+margin_right = 370.984
+margin_bottom = 1166.15
+
+[node name="Marina Bay Link Mall" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 286.906
+margin_top = 1171.26
+margin_right = 318.906
+margin_bottom = 1208.26
+
+[node name="Chinatown Complex" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 130.856
+margin_top = 1092.34
+margin_right = 162.856
+margin_bottom = 1129.34
+
+[node name="Far East Square" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 183.856
+margin_top = 1109.34
+margin_right = 215.856
+margin_bottom = 1146.34
+
+[node name="Telok Ayer Market" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 209.341
+margin_top = 1178.04
+margin_right = 241.341
+margin_bottom = 1215.04
+
+[node name="Maxwell Hawker Centre" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 159.479
+margin_top = 1190.23
+margin_right = 191.479
+margin_bottom = 1227.23
+
+[node name="Tanjong Pagar Plaza" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 117.952
+margin_top = 1201.68
+margin_right = 149.952
+margin_bottom = 1238.68
+
+[node name="100 AM" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 143.967
+margin_top = 1254.49
+margin_right = 175.967
+margin_bottom = 1291.49
+
+[node name="Icon Village" parent="Malls" instance=ExtResource( 5 )]
+margin_left = 178.316
+margin_top = 1254.49
+margin_right = 210.316
+margin_bottom = 1291.49
+
+[node name="VivoCity" parent="Malls" instance=ExtResource( 5 )]
+margin_left = -207.756
+margin_top = 1388.55
+margin_right = -175.756
+margin_bottom = 1425.55
+
+[node name="Universal Studios" parent="Malls" instance=ExtResource( 5 )]
+margin_left = -160.204
+margin_top = 1573.95
+margin_right = -128.204
+margin_bottom = 1610.95
 
 [node name="GUI Canvas Layer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="GUI" parent="GUI Canvas Layer" instance=ExtResource( 6 )]
+visible = false
 camera_path = NodePath("../../Main Camera")
-player_company_path = NodePath("../../Companies/PlayerCompany")
+player_company_path = NodePath("../../Companies/Chicken Rice Nation")
 map_path = NodePath("../../Map")
 malls_path = NodePath("../../Malls")
 f1_income_tree_sales_tooltip = "Sales Income is earned every quarter from each Customer at each of a Company's Outlets."

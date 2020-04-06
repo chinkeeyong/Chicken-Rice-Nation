@@ -129,16 +129,16 @@ func _on_escape():
 	select_mall(null)
 
 
-func _on_rename_button_pressed():
+func _on_RenameButton_pressed():
 	if selected_company != null:
 		renamed_company = selected_company
-		rename_dialog_text.text = selected_company.company_name
+		rename_dialog_text.text = selected_company.name
 		rename_dialog.popup_centered()
 
 
 func _on_rename():
-	renamed_company.company_name = rename_dialog_text.text
-	f1_company_name.text = selected_company.company_name
+	renamed_company.name = rename_dialog_text.text
+	f1_company_name.text = selected_company.name
 
 
 func _on_mall_clicked(mall):
@@ -227,7 +227,7 @@ func update_left_side_menu_tab(tab_id):
 
 func update_f1():
 	f1_company_logo.texture = selected_company.logo
-	f1_company_name.text = selected_company.company_name
+	f1_company_name.text = selected_company.name
 	f1_company_subtitle.text = selected_company.subtitle
 	f1_company_brand_strength.text = to_1_significant_digit(selected_company.brand_strength)
 	f1_company_net_worth.text = money_string(selected_company.net_worth)
@@ -281,6 +281,7 @@ func select_mall(mall):
 		print ("select_mall null")
 
 
+# warning-ignore:unused_argument
 func to_1_significant_digit(number):
 	number *= 10
 	number = round(number)
@@ -290,6 +291,7 @@ func to_1_significant_digit(number):
 	return "%s.%s" % [number, digit]
 
 
+# warning-ignore:unused_argument
 func positive_negative_color(amount):
 	amount *= 100
 	amount = round(amount)

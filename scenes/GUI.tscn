@@ -110,7 +110,6 @@ size_flags_vertical = 3
 custom_constants/separation = 16
 
 [node name="CompanyInfo" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing"]
-editor/display_folded = true
 margin_right = 407.0
 margin_bottom = 62.0
 custom_constants/separation = 16
@@ -339,7 +338,6 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Rename Dialog" type="AcceptDialog" parent="."]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -379,3 +377,5 @@ align = 1
 [connection signal="mouse_entered" from="Top Menu/Margins/Menu Buttons/F2" to="Top Menu/Margins/Menu Buttons/F2" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Top Menu/Margins/Menu Buttons/F2" to="Top Menu/Margins/Menu Buttons/F2" method="_on_mouse_exited"]
 [connection signal="pressed" from="Top Menu/Margins/Menu Buttons/F2" to="." method="_on_menu_button" binds= [ 1 ]]
+[connection signal="pressed" from="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/NameRow/RenameButton" to="." method="_on_RenameButton_pressed"]
+[connection signal="confirmed" from="Rename Dialog" to="." method="_on_rename"]

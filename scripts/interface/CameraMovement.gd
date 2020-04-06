@@ -23,6 +23,9 @@ var target_position
 
 func _ready():
 	
+	zoom.x = max_zoom
+	zoom.y = max_zoom
+	
 	malls = get_node(malls_path)
 	for mall in malls.get_children():
 		mall.connect("gui_input", self, "_on_Map_input_event")
@@ -35,6 +38,7 @@ func _ready():
 
 
 func _process(delta):
+	var old_local_mouse_position = get_local_mouse_position()
 	
 	# Panning
 	var panning_velocity = Vector2.ZERO
@@ -51,9 +55,16 @@ func _process(delta):
 	target_position += panning_velocity * pan_speed * delta
 	
 	# Apply zoom
+	var zoom_before = zoom.x
 	zoom = zoom.linear_interpolate(target_zoom, zoom_lerp_amount * delta)
+	var zoom_delta = zoom.x - zoom_before # For zoom movement later
 	for mall in malls.get_children():
 		mall.rect_scale = zoom
+	
+	# Finally, apply all transformation to position
+	var zoom_pan = old_local_mouse_position - get_local_mouse_position()
+	position += zoom_pan
+	target_position += zoom_pan
 	
 	# Clamp to map bounds
 	target_position.x = clamp(target_position.x,
@@ -63,8 +74,15 @@ func _process(delta):
 			(map_texture.get_height() * -0.5) + (get_viewport_rect().size.y * zoom.y / 2),
 			(map_texture.get_height() * 0.5) - (get_viewport_rect().size.y * zoom.y / 2))
 	
-	# Finally, apply all transformation to position
 	position = position.linear_interpolate(target_position, position_lerp_amount * delta)
+	
+	# Clamp to map bounds
+	position.x = clamp(position.x,
+			(map_texture.get_width() * -0.5) + (get_viewport_rect().size.x * zoom.x / 2),
+			(map_texture.get_width() * 0.5) - (get_viewport_rect().size.x * zoom.x / 2))
+	position.y = clamp(position.y,
+			(map_texture.get_height() * -0.5) + (get_viewport_rect().size.y * zoom.y / 2),
+			(map_texture.get_height() * 0.5) - (get_viewport_rect().size.y * zoom.y / 2))
 
 
 func _on_Map_input_event(event):
