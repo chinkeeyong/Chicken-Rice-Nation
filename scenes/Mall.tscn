@@ -7,6 +7,7 @@
 [ext_resource path="res://basic_tooltip.tres" type="StyleBox" id=5]
 
 [node name="Mall" type="TextureButton"]
+editor/display_folded = true
 margin_left = -16.0
 margin_top = -37.0
 margin_right = 16.0

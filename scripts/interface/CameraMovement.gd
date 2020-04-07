@@ -8,10 +8,16 @@ export var min_zoom = 1.0
 export var position_lerp_amount = 1.0
 export var zoom_lerp_amount = 1.0
 
+
 export(Texture) var map_texture
 
 export(NodePath) var malls_path
 var malls
+
+export(NodePath) var small_labels_path
+var small_labels
+export var small_label_fade_distance = 3.0
+export var small_labels_fade_speed = 5.0
 
 var viewport_left_bound = 1
 var viewport_up_bound = 1
@@ -29,6 +35,9 @@ func _ready():
 	malls = get_node(malls_path)
 	for mall in malls.get_children():
 		mall.connect("gui_input", self, "_on_Map_input_event")
+	
+	small_labels = get_node(small_labels_path)
+	small_labels.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	
 	viewport_right_bound = get_viewport_rect().size.x - 1
 	viewport_down_bound = get_viewport_rect().size.y - 1
@@ -55,9 +64,7 @@ func _process(delta):
 	target_position += panning_velocity * pan_speed * delta
 	
 	# Apply zoom
-	var zoom_before = zoom.x
 	zoom = zoom.linear_interpolate(target_zoom, zoom_lerp_amount * delta)
-	var zoom_delta = zoom.x - zoom_before # For zoom movement later
 	for mall in malls.get_children():
 		mall.rect_scale = zoom
 	
@@ -67,22 +74,25 @@ func _process(delta):
 	target_position += zoom_pan
 	
 	# Clamp to map bounds
-	target_position.x = clamp(target_position.x,
-			(map_texture.get_width() * -0.5) + (get_viewport_rect().size.x * zoom.x / 2),
-			(map_texture.get_width() * 0.5) - (get_viewport_rect().size.x * zoom.x / 2))
-	target_position.y = clamp(target_position.y,
-			(map_texture.get_height() * -0.5) + (get_viewport_rect().size.y * zoom.y / 2),
-			(map_texture.get_height() * 0.5) - (get_viewport_rect().size.y * zoom.y / 2))
+	var world_left_bound = (map_texture.get_width() * -0.5) + (get_viewport_rect().size.x * zoom.x / 2)
+	var world_right_bound = (map_texture.get_width() * 0.5) - (get_viewport_rect().size.x * zoom.x / 2)
+	var world_up_bound = (map_texture.get_height() * -0.5) + (get_viewport_rect().size.y * zoom.y / 2)
+	var world_down_bound = (map_texture.get_height() * 0.5) - (get_viewport_rect().size.y * zoom.y / 2)
+	target_position.x = clamp(target_position.x, world_left_bound, world_right_bound)
+	target_position.y = clamp(target_position.y, world_up_bound, world_down_bound)
 	
+	# Interpolate position to target
 	position = position.linear_interpolate(target_position, position_lerp_amount * delta)
 	
 	# Clamp to map bounds
-	position.x = clamp(position.x,
-			(map_texture.get_width() * -0.5) + (get_viewport_rect().size.x * zoom.x / 2),
-			(map_texture.get_width() * 0.5) - (get_viewport_rect().size.x * zoom.x / 2))
-	position.y = clamp(position.y,
-			(map_texture.get_height() * -0.5) + (get_viewport_rect().size.y * zoom.y / 2),
-			(map_texture.get_height() * 0.5) - (get_viewport_rect().size.y * zoom.y / 2))
+	position.x = clamp(position.x, world_left_bound, world_right_bound)
+	position.y = clamp(position.y, world_up_bound, world_down_bound)
+	
+	# Fade small map labels
+	if zoom.x < small_label_fade_distance:
+		small_labels.modulate = small_labels.modulate.linear_interpolate(Color.white, small_labels_fade_speed * delta)
+	else:
+		small_labels.modulate = small_labels.modulate.linear_interpolate(Color(1.0, 1.0, 1.0, 0.0), small_labels_fade_speed * delta)
 
 
 func _on_Map_input_event(event):

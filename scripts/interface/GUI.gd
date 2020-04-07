@@ -16,9 +16,10 @@ export(NodePath) var f1_company_brand_strength_path
 var f1_company_brand_strength
 export(NodePath) var f1_company_net_worth_path
 var f1_company_net_worth
+export(NodePath) var f1_rename_button_path
+var f1_rename_button
 export(NodePath) var f1_sabotage_button_path
 var f1_sabotage_button
-
 export(NodePath) var f1_income_tree_path
 var f1_income_tree
 var f1_income_tree_sales
@@ -29,14 +30,21 @@ var f1_expenditure_tree
 var f1_expenditure_tree_rental
 var f1_expenditure_tree_other
 var f1_expenditure_tree_total
-
 export(NodePath) var f1_balance_path
 var f1_balance
 export(NodePath) var f1_growth_path
 var f1_growth
-
 export(NodePath) var f1_outlet_tree_path
 var f1_outlet_tree
+
+export(NodePath) var mall_viewer_path
+var mall_viewer
+export(NodePath) var mall_viewer_name_path
+var mall_viewer_name
+export(NodePath) var mall_viewer_rent_path
+var mall_viewer_rent
+export(NodePath) var mall_viewer_prestige_path
+var mall_viewer_prestige
 
 export(NodePath) var rename_dialog_path
 var rename_dialog
@@ -79,13 +87,18 @@ func _ready():
 	f1_company_subtitle = get_node(f1_company_subtitle_path)
 	f1_company_brand_strength = get_node(f1_company_brand_strength_path)
 	f1_company_net_worth = get_node(f1_company_net_worth_path)
+	f1_rename_button = get_node(f1_rename_button_path)
 	f1_sabotage_button = get_node(f1_sabotage_button_path)
 	f1_income_tree = get_node(f1_income_tree_path)
 	f1_expenditure_tree = get_node(f1_expenditure_tree_path)
 	f1_balance = get_node(f1_balance_path)
 	f1_growth = get_node(f1_growth_path)
-	
 	f1_outlet_tree = get_node(f1_outlet_tree_path)
+	
+	mall_viewer = get_node(mall_viewer_path)
+	mall_viewer_name = get_node(mall_viewer_name_path)
+	mall_viewer_rent = get_node(mall_viewer_rent_path)
+	mall_viewer_prestige = get_node(mall_viewer_prestige_path)
 	
 	rename_dialog = get_node(rename_dialog_path)
 	rename_dialog_text = get_node(rename_dialog_text_path)
@@ -105,6 +118,7 @@ func _ready():
 	construct_f1_outlet_tree()
 	
 	left_side_menu.hide()
+	mall_viewer.hide()
 
 
 func _input(event):
@@ -142,7 +156,6 @@ func _on_rename():
 
 
 func _on_mall_clicked(mall):
-	print("_on_mall_clicked %s" % mall.name)
 	select_mall(mall)
 
 
@@ -233,8 +246,10 @@ func update_f1():
 	f1_company_net_worth.text = money_string(selected_company.net_worth)
 	f1_company_net_worth.set("custom_colors/font_color", positive_negative_color(selected_company.net_worth))
 	if selected_company == player_company:
+		f1_rename_button.show()
 		f1_sabotage_button.hide()
 	else:
+		f1_rename_button.hide()
 		f1_sabotage_button.show()
 	update_f1_finances()
 	update_f1_outlets()
@@ -267,18 +282,26 @@ func update_f2():
 	pass
 
 
+func update_mall_viewer():
+	if selected_mall != null:
+		mall_viewer_name.text = selected_mall.name
+		mall_viewer_rent.text = money_string(selected_mall.rent)
+		mall_viewer_prestige.text = to_1_significant_digit(selected_mall.prestige)
+
+
 func select_mall(mall):
 	
 	if selected_mall != null:
 		selected_mall.deselect()
 	
 	if mall != null:
-		print ("select_mall %s" % mall.name)
 		selected_mall = mall
 		mall.select()
+		mall_viewer.show()
+		update_mall_viewer()
 	else:
 		selected_mall = null
-		print ("select_mall null")
+		mall_viewer.hide()
 
 
 # warning-ignore:unused_argument
@@ -288,7 +311,7 @@ func to_1_significant_digit(number):
 	var digit = int(number) % 10
 	number /= 10.0
 	number = int(number)
-	return "%s.%s" % [number, digit]
+	return "%s.%s" % [comma_sep(number), digit]
 
 
 # warning-ignore:unused_argument
@@ -311,9 +334,9 @@ func money_string(dollars):
 	dollars /= 100.0
 	dollars = int(dollars)
 	if dollars > 0:
-		return "$%s.%s" % [dollars, cents]
+		return "$%s.%s" % [comma_sep(dollars), cents]
 	elif dollars < 0:
-		return "$%s.%s" % [dollars, cents]
+		return "$%s.%s" % [comma_sep(dollars), cents]
 	else:
 		return "$0.00"
 
@@ -325,9 +348,9 @@ func signed_money_string(dollars):
 	dollars /= 100.0
 	dollars = int(dollars)
 	if dollars > 0:
-		return "+$%s.%s" % [dollars, cents]
+		return "+$%s.%s" % [comma_sep(dollars), cents]
 	elif dollars < 0:
-		return "-$%s.%s" % [dollars, cents]
+		return "-$%s.%s" % [comma_sep(dollars), cents]
 	else:
 		return "$0.00"
 
@@ -339,8 +362,20 @@ func signed_percentile_string(number):
 	number /= 10.0
 	number = int(number)
 	if number > 0:
-		return "+%s.%s%" % [number, cents]
+		return "+%s.%s%" % [comma_sep(number), cents]
 	elif number < 0:
-		return "-%s.%s%" % [number, cents]
+		return "-%s.%s%" % [comma_sep(number), cents]
 	else:
 		return "0.0%"
+
+func comma_sep(number):
+	var string = str(number)
+	var mod = string.length() % 3
+	var res = ""
+	
+	for i in range(0, string.length()):
+		if i != 0 && i % 3 == mod:
+			res += ","
+		res += string[i]
+	
+	return res
