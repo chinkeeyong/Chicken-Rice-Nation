@@ -9,7 +9,7 @@
 [ext_resource path="res://font/LatoWeb-Bold.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://gfx/edit_pencil-01.png" type="Texture" id=8]
 [ext_resource path="res://font/LatoWeb-Italic.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://font/LatoWeb-Bold.tres" type="DynamicFont" id=10]
+[ext_resource path="res://scenes/Objects/Lot Panel.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -32,10 +32,14 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
+cash_counter_path = NodePath("Top Menu/Margins/Top Menu Divider/Resources/Cash Value")
+suspicion_counter_path = NodePath("Top Menu/Margins/Top Menu Divider/Resources/Suspicion Value")
 left_side_menu_path = NodePath("Left Side Menu")
 f1_company_logo_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/CompanyLogo")
 f1_company_name_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/NameRow/CompanyName")
 f1_company_subtitle_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/SubtitleRow/CompanySubtitle")
+f1_company_cash_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats/Cash Value")
+f1_company_suspicion_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats/Suspicion Value")
 f1_company_brand_strength_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats/Brand Strength Value")
 f1_company_net_worth_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats/Net Worth Value")
 f1_rename_button_path = NodePath("Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/NameRow/RenameButton")
@@ -49,53 +53,105 @@ mall_viewer_path = NodePath("Mall Viewer")
 mall_viewer_name_path = NodePath("Mall Viewer/Margins/Info/Mall Name")
 mall_viewer_rent_path = NodePath("Mall Viewer/Margins/Info/Mall Stats/Rent Value")
 mall_viewer_prestige_path = NodePath("Mall Viewer/Margins/Info/Mall Stats/Prestige Value")
+mall_viewer_customers_path = NodePath("Mall Viewer/Margins/Info/Mall Stats/Customers Value")
+mall_viewer_lots_path = NodePath("Mall Viewer/Margins/Info/Lots")
 rename_dialog_path = NodePath("Rename Dialog")
 rename_dialog_text_path = NodePath("Rename Dialog/VBoxContainer/LineEdit")
 f1_income_tree_sales_tooltip = "Sales Income is earned every quarter from each Customer at each of a Company's Outlets."
+f1_income_tree_liquidation_tooltip = "Liquidation Income is earned when selling assets such as Outlets."
 f1_income_tree_other_tooltip = "Other Income sources include Sabotage and random Events."
 f1_expenditure_tree_rental_tooltip = "Rental Expenditure is deducted every quarter for each of a Company's Outlets according to their Rent."
+f1_expenditure_tree_acquisition_tooltip = "Acquisition Expenditure is spent to open new Outlets or buyout existing Outlets."
 f1_expenditure_tree_other_tooltip = "Other Expenditure sources include Sabotage and random Events."
 
 [node name="Top Menu" type="PanelContainer" parent="."]
 margin_left = -4.0
 margin_top = -4.0
-margin_right = 122.0
+margin_right = 367.0
 margin_bottom = 65.0
 
 [node name="Margins" type="Control" parent="Top Menu"]
-editor/display_folded = true
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 119.0
+margin_right = 364.0
 margin_bottom = 62.0
 
-[node name="Menu Buttons" type="HBoxContainer" parent="Top Menu/Margins"]
-editor/display_folded = true
+[node name="Top Menu Divider" type="HBoxContainer" parent="Top Menu/Margins"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 107.0
-margin_bottom = 55.0
+margin_right = 239.0
+margin_bottom = 50.0
+custom_constants/separation = 16
 
-[node name="F1" type="TextureButton" parent="Top Menu/Margins/Menu Buttons"]
+[node name="Menu Buttons" type="HBoxContainer" parent="Top Menu/Margins/Top Menu Divider"]
 margin_right = 49.0
-margin_bottom = 51.0
+margin_bottom = 49.0
+
+[node name="F1" type="TextureButton" parent="Top Menu/Margins/Top Menu Divider/Menu Buttons"]
+margin_right = 49.0
+margin_bottom = 49.0
 hint_tooltip = "Your Company [F1]"
 shortcut_in_tooltip = false
 texture_normal = ExtResource( 3 )
 script = ExtResource( 4 )
 
-[node name="F2" type="TextureButton" parent="Top Menu/Margins/Menu Buttons"]
+[node name="F2" type="TextureButton" parent="Top Menu/Margins/Top Menu Divider/Menu Buttons"]
+visible = false
 margin_left = 53.0
 margin_right = 103.0
-margin_bottom = 51.0
+margin_bottom = 50.0
 hint_tooltip = "Finance [F2]"
 shortcut_in_tooltip = false
 texture_normal = ExtResource( 5 )
 script = ExtResource( 4 )
 
+[node name="Resources" type="GridContainer" parent="Top Menu/Margins/Top Menu Divider"]
+editor/display_folded = true
+margin_left = 65.0
+margin_right = 185.0
+margin_bottom = 49.0
+custom_constants/hseparation = 16
+columns = 2
+
+[node name="Cash Label" type="Label" parent="Top Menu/Margins/Top Menu Divider/Resources"]
+margin_right = 72.0
+margin_bottom = 20.0
+hint_tooltip = "Cash is a simplified representation of a Company's liquid assets. It's used to buy things."
+mouse_filter = 0
+text = "Cash:"
+
+[node name="Cash Value" type="Label" parent="Top Menu/Margins/Top Menu Divider/Resources"]
+margin_left = 88.0
+margin_right = 120.0
+margin_bottom = 20.0
+hint_tooltip = "Cash is a simplified representation of a Company's liquid assets. It's used to buy things."
+mouse_filter = 0
+text = "NaN"
+
+[node name="Suspicion Label" type="Label" parent="Top Menu/Margins/Top Menu Divider/Resources"]
+margin_top = 24.0
+margin_right = 72.0
+margin_bottom = 44.0
+hint_tooltip = "Suspicion is a measure of how vulnerable a Company is to lawsuits and police investigation. It increases when carrying
+out illegal actions like Sabotage, or as a result of Sabotage or Random Events. It slowly decreases over time. Higher
+Suspicion makes a Company more vulnerable to negative random Events."
+mouse_filter = 0
+text = "Suspicion:"
+
+[node name="Suspicion Value" type="Label" parent="Top Menu/Margins/Top Menu Divider/Resources"]
+margin_left = 88.0
+margin_top = 24.0
+margin_right = 120.0
+margin_bottom = 44.0
+hint_tooltip = "Suspicion is a measure of how vulnerable a Company is to lawsuits and police investigation. It increases when carrying
+out illegal actions like Sabotage, or as a result of Sabotage or Random Events. It slowly decreases over time. Higher
+Suspicion makes a Company more vulnerable to negative random Events."
+mouse_filter = 0
+text = "0"
+
 [node name="Left Side Menu" type="TabContainer" parent="."]
 margin_top = 62.0
-margin_right = 435.0
+margin_right = 490.0
 margin_bottom = 614.0
 tab_align = 0
 tabs_visible = false
@@ -111,22 +167,25 @@ margin_bottom = -4.0
 [node name="VSplitContainer" type="VSplitContainer" parent="Left Side Menu/Company"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-split_offset = 200
+margin_left = 6.0
+margin_right = -4.0
+margin_bottom = -6.0
+split_offset = 176
+dragger_visibility = 1
 
 [node name="Main Window (Scrollbars)" type="ScrollContainer" parent="Left Side Menu/Company/VSplitContainer"]
-margin_right = 427.0
-margin_bottom = 200.0
+margin_right = 472.0
+margin_bottom = 176.0
 
 [node name="Main Window Item Listing" type="VBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)"]
-margin_right = 427.0
-margin_bottom = 200.0
+margin_right = 472.0
+margin_bottom = 176.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 16
 
 [node name="CompanyInfo" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing"]
-editor/display_folded = true
-margin_right = 427.0
+margin_right = 472.0
 margin_bottom = 62.0
 custom_constants/separation = 16
 
@@ -136,7 +195,6 @@ margin_bottom = 62.0
 texture = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo"]
-editor/display_folded = true
 margin_left = 78.0
 margin_right = 329.0
 margin_bottom = 62.0
@@ -156,6 +214,7 @@ text = "Chicken Rice Nation"
 margin_left = 235.0
 margin_right = 251.0
 margin_bottom = 30.0
+hint_tooltip = "Click to rename your Company."
 shortcut_in_tooltip = false
 texture_normal = ExtResource( 8 )
 script = ExtResource( 4 )
@@ -174,57 +233,108 @@ text = "Your Company"
 
 [node name="Stats" type="GridContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing"]
 margin_top = 78.0
-margin_right = 427.0
-margin_bottom = 158.0
+margin_right = 472.0
+margin_bottom = 134.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/hseparation = 16
-columns = 2
+columns = 4
 
-[node name="Brand Strength Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
-margin_right = 111.0
+[node name="Cash Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
+margin_right = 104.0
 margin_bottom = 20.0
-hint_tooltip = "A Company's Brand Strength measures its ability to attract Customers. Higher Brand Strength is better."
+hint_tooltip = "Cash is a simplified representation of a Company's liquid assets. It's used to buy things."
 mouse_filter = 0
-text = "Brand Strength:"
+size_flags_horizontal = 3
+text = "Cash:"
 
-[node name="Brand Strength Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
-margin_left = 127.0
-margin_right = 159.0
+[node name="Cash Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
+margin_left = 120.0
+margin_right = 224.0
 margin_bottom = 20.0
+hint_tooltip = "Cash is a simplified representation of a Company's liquid assets. It's used to buy things."
+mouse_filter = 0
+size_flags_horizontal = 3
 text = "NaN"
+align = 2
+
+[node name="Suspicion Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
+margin_left = 240.0
+margin_right = 351.0
+margin_bottom = 20.0
+hint_tooltip = "Suspicion is a measure of how vulnerable a Company is to lawsuits and police investigation. It increases when carrying
+out illegal actions like Sabotage, or as a result of Sabotage or Random Events. It slowly decreases over time. Higher
+Suspicion makes a Company more vulnerable to negative random Events."
+mouse_filter = 0
+size_flags_horizontal = 3
+text = "Suspicion:"
+
+[node name="Suspicion Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
+margin_left = 367.0
+margin_right = 471.0
+margin_bottom = 20.0
+hint_tooltip = "Suspicion is a measure of how vulnerable a Company is to lawsuits and police investigation. It increases when carrying
+out illegal actions like Sabotage, or as a result of Sabotage or Random Events. It slowly decreases over time. Higher
+Suspicion makes a Company more vulnerable to negative random Events."
+mouse_filter = 0
+size_flags_horizontal = 3
+text = "NaN"
+align = 2
 
 [node name="Net Worth Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
 margin_top = 24.0
-margin_right = 111.0
+margin_right = 104.0
 margin_bottom = 44.0
 hint_tooltip = "The total value of a Company's Cash, Outlets, and Loans."
 mouse_filter = 0
 text = "Net Worth:"
 
 [node name="Net Worth Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
-margin_left = 127.0
+margin_left = 120.0
 margin_top = 24.0
-margin_right = 159.0
+margin_right = 224.0
 margin_bottom = 44.0
+hint_tooltip = "The total value of a Company's Cash, Outlets, and Loans."
+mouse_filter = 0
 text = "NaN"
+align = 2
+
+[node name="Brand Strength Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
+margin_left = 240.0
+margin_top = 24.0
+margin_right = 351.0
+margin_bottom = 44.0
+hint_tooltip = "A Company's Brand Strength measures its ability to attract Customers. Higher Brand Strength is better. A Company's
+Brand Strength will increase every quarter for each Outlet in a Mall with higher Prestige than its Brand Strength."
+mouse_filter = 0
+text = "Brand Strength:"
+
+[node name="Brand Strength Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Stats"]
+margin_left = 367.0
+margin_top = 24.0
+margin_right = 471.0
+margin_bottom = 44.0
+hint_tooltip = "A Company's Brand Strength measures its ability to attract Customers. Higher Brand Strength is better. A Company's
+Brand Strength will increase every quarter for each Outlet in a Mall with higher Prestige than its Brand Strength."
+mouse_filter = 0
+text = "NaN"
+align = 2
 
 [node name="Interaction Buttons" type="VBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing"]
-margin_top = 174.0
-margin_right = 427.0
-margin_bottom = 200.0
+margin_top = 150.0
+margin_right = 472.0
+margin_bottom = 176.0
 
 [node name="Sabotage Button" type="Button" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Interaction Buttons"]
-margin_right = 427.0
+margin_right = 472.0
 margin_bottom = 26.0
-hint_tooltip = "Spend 1 AP to Sabotage this Company's operations. This will give you a random opportunity to reduce their Quarterly Balance or inflict a negative Modifier on one of their Outlets."
-text = "Sabotage [1 AP]"
+hint_tooltip = "Attempt to Sabotage this Company's operations. This will increase your Suspicion and trigger a random opportunity."
+text = "Sabotage"
 
 [node name="Tabs" type="TabContainer" parent="Left Side Menu/Company/VSplitContainer"]
-margin_top = 212.0
-margin_right = 427.0
-margin_bottom = 540.0
-tab_align = 0
+margin_top = 188.0
+margin_right = 472.0
+margin_bottom = 534.0
 
 [node name="Finances" type="Tabs" parent="Left Side Menu/Company/VSplitContainer/Tabs"]
 editor/display_folded = true
@@ -240,79 +350,85 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Balance Sheet" type="VBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)"]
-margin_right = 419.0
-margin_bottom = 286.0
+margin_right = 464.0
+margin_bottom = 304.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Income & Expenditure" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet"]
-margin_right = 419.0
-margin_bottom = 238.0
+margin_right = 464.0
+margin_bottom = 256.0
 size_flags_vertical = 3
 
 [node name="Income Tree" type="Tree" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Income & Expenditure"]
-margin_right = 207.0
-margin_bottom = 238.0
+margin_right = 230.0
+margin_bottom = 256.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 2
 hide_root = true
 
 [node name="Expenditure Tree" type="Tree" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Income & Expenditure"]
-margin_left = 211.0
-margin_right = 419.0
-margin_bottom = 238.0
+margin_left = 234.0
+margin_right = 464.0
+margin_bottom = 256.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 2
 hide_root = true
 
 [node name="Balance" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet"]
-margin_top = 242.0
-margin_right = 419.0
-margin_bottom = 262.0
+margin_top = 260.0
+margin_right = 464.0
+margin_bottom = 280.0
 
 [node name="Balance Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Balance"]
-margin_right = 357.0
+margin_right = 402.0
 margin_bottom = 20.0
 hint_tooltip = "A Company's Quarterly Balance is equal to its Income minus its Expenditure."
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Last Quarterly Balance:"
+text = "Quarterly Balance:"
 
 [node name="Balance Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Balance"]
-margin_left = 361.0
-margin_right = 419.0
+margin_left = 406.0
+margin_right = 464.0
 margin_bottom = 20.0
+hint_tooltip = "A Company's Quarterly Balance is equal to its Income minus its Expenditure."
+mouse_filter = 0
 size_flags_vertical = 1
 text = "+$100.0"
 align = 2
 
 [node name="Growth" type="HBoxContainer" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet"]
-margin_top = 266.0
-margin_right = 419.0
-margin_bottom = 286.0
+margin_top = 284.0
+margin_right = 464.0
+margin_bottom = 304.0
 
 [node name="Growth Label" type="Label" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Growth"]
-margin_right = 371.0
+margin_right = 416.0
 margin_bottom = 20.0
 hint_tooltip = "A Company's Growth is the change in its Net Worth. Growth is important for a financial consultant like you.
 If your Company's Growth is negative for one year (four consecutive quarters), you will lose the game!"
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Last Quarterly Growth:"
+text = "Quarterly Growth:"
 
 [node name="Growth Value" type="Label" parent="Left Side Menu/Company/VSplitContainer/Tabs/Finances/Balance Sheet (Scroll)/Balance Sheet/Growth"]
-margin_left = 375.0
-margin_right = 419.0
+margin_left = 420.0
+margin_right = 464.0
 margin_bottom = 20.0
+hint_tooltip = "A Company's Growth is the change in its Net Worth. Growth is important for a financial consultant like you.
+If your Company's Growth is negative for one year (four consecutive quarters), you will lose the game!"
+mouse_filter = 0
 size_flags_vertical = 1
 text = "+1.0%"
 align = 2
 
 [node name="Outlets" type="Tabs" parent="Left Side Menu/Company/VSplitContainer/Tabs"]
+editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -328,30 +444,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Outlet Tree" type="Tree" parent="Left Side Menu/Company/VSplitContainer/Tabs/Outlets/ScrollContainer"]
-margin_right = 419.0
-margin_bottom = 286.0
+margin_right = 464.0
+margin_bottom = 304.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 4
 hide_root = true
-
-[node name="Marketing" type="Tabs" parent="Left Side Menu/Company/VSplitContainer/Tabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 38.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Modifiers" type="Tabs" parent="Left Side Menu/Company/VSplitContainer/Tabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 38.0
-margin_right = -4.0
-margin_bottom = -4.0
 
 [node name="Finance" type="Tabs" parent="Left Side Menu"]
 visible = false
@@ -402,39 +500,41 @@ align = 1
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = -6.0
-margin_top = -467.0
-margin_right = 438.0
+margin_top = -470.0
+margin_right = 626.0
 margin_bottom = 8.0
 
 [node name="Margins" type="Control" parent="Mall Viewer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 437.0
-margin_bottom = 468.0
+margin_right = 625.0
+margin_bottom = 471.0
 
 [node name="Info" type="VBoxContainer" parent="Mall Viewer/Margins"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_bottom = -4.0
+margin_left = 5.0
+margin_bottom = -5.0
 custom_constants/separation = 8
 
 [node name="Mall Name" type="Label" parent="Mall Viewer/Margins/Info"]
-margin_right = 426.0
+margin_right = 613.0
 margin_bottom = 30.0
+hint_tooltip = "Click to center the map on this Mall."
+mouse_filter = 0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
 text = "Marina Bay Sands"
 
 [node name="Mall Stats" type="GridContainer" parent="Mall Viewer/Margins/Info"]
 margin_top = 38.0
-margin_right = 426.0
+margin_right = 613.0
 margin_bottom = 82.0
 custom_constants/hseparation = 16
 columns = 4
 
 [node name="Rent Label" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_right = 94.0
+margin_right = 141.0
 margin_bottom = 20.0
 hint_tooltip = "Each Outlet in this Mall costs this amount of Expenditure to maintain each quarter."
 mouse_filter = 0
@@ -442,15 +542,17 @@ size_flags_horizontal = 3
 text = "Rent per Lot:"
 
 [node name="Rent Value" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_left = 110.0
-margin_right = 204.0
+margin_left = 157.0
+margin_right = 298.0
 margin_bottom = 20.0
+hint_tooltip = "Each Outlet in this Mall costs this amount of Expenditure to maintain each quarter."
+mouse_filter = 0
 size_flags_horizontal = 3
 text = "0"
 
 [node name="Customers Label" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_left = 220.0
-margin_right = 314.0
+margin_left = 314.0
+margin_right = 455.0
 margin_bottom = 20.0
 hint_tooltip = "Malls have a fixed number of Customers. Each Customer will patronize a random Outlet each quarter, causing the
 Company who owns that Outlet to earn Sales Income. A Customer is more likely to patronize a Company with
@@ -462,177 +564,92 @@ size_flags_horizontal = 3
 text = "Customers:"
 
 [node name="Customers Value" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_left = 330.0
-margin_right = 424.0
+margin_left = 471.0
+margin_right = 612.0
 margin_bottom = 20.0
+hint_tooltip = "Malls have a fixed number of Customers. Each Customer will patronize a random Outlet each quarter, causing the
+Company who owns that Outlet to earn Sales Income. A Customer is more likely to patronize a Company with
+high Brand Strength.
+If a Customer goes to an Outlet but finds that it is full, she will try to find another Outlet in the Mall owned by the
+same Company. If all the Company's Outlets in the Mall are full, she will randomly choose a new Outlet."
+mouse_filter = 0
 size_flags_horizontal = 3
 text = "0"
 
 [node name="Prestige Label" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
 margin_top = 24.0
-margin_right = 94.0
+margin_right = 141.0
 margin_bottom = 44.0
 hint_tooltip = "The Prestige of a Mall reflects its target demographic. Malls with higher Prestige have snobbier Customers who are
 far less likely to patronize Companies with low Brand Strength. A Company's Brand Strength will increase every quarter
-if it has an Outlet in a Mall with higher Prestige than its Brand Strength."
+for each Outlet in a Mall with higher Prestige than its Brand Strength."
 mouse_filter = 0
 size_flags_horizontal = 3
 text = "Prestige:"
 
 [node name="Prestige Value" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_left = 110.0
+margin_left = 157.0
 margin_top = 24.0
-margin_right = 204.0
+margin_right = 298.0
 margin_bottom = 44.0
+hint_tooltip = "The Prestige of a Mall reflects its target demographic. Malls with higher Prestige have snobbier Customers who are
+far less likely to patronize Companies with low Brand Strength. A Company's Brand Strength will increase every quarter
+for each Outlet in a Mall with higher Prestige than its Brand Strength."
+mouse_filter = 0
 size_flags_horizontal = 3
 text = "0"
 
-[node name="Outlets" type="GridContainer" parent="Mall Viewer/Margins/Info"]
+[node name="Lots" type="GridContainer" parent="Mall Viewer/Margins/Info"]
 margin_top = 90.0
-margin_right = 426.0
-margin_bottom = 457.0
+margin_right = 613.0
+margin_bottom = 459.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-columns = 2
+columns = 3
 
-[node name="Outlet Panel" type="PanelContainer" parent="Mall Viewer/Margins/Info/Outlets"]
-margin_right = 211.0
-margin_bottom = 136.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="LotPanel1" parent="Mall Viewer/Margins/Info/Lots" instance=ExtResource( 10 )]
+margin_right = 201.0
+margin_bottom = 182.0
+lot_id = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Mall Viewer/Margins/Info/Outlets/Outlet Panel"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 204.0
-margin_bottom = 129.0
+[node name="LotPanel2" parent="Mall Viewer/Margins/Info/Lots" instance=ExtResource( 10 )]
+margin_left = 205.0
+margin_right = 406.0
+margin_bottom = 182.0
+lot_id = 2
 
-[node name="Lot Id" type="Label" parent="Mall Viewer/Margins/Info/Outlets/Outlet Panel/VBoxContainer"]
-margin_right = 197.0
-margin_bottom = 20.0
-custom_colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
-text = "Lot #1"
-autowrap = true
+[node name="LotPanel3" parent="Mall Viewer/Margins/Info/Lots" instance=ExtResource( 10 )]
+margin_left = 410.0
+margin_right = 611.0
+margin_bottom = 182.0
+lot_id = 3
 
-[node name="Owner Name" type="Label" parent="Mall Viewer/Margins/Info/Outlets/Outlet Panel/VBoxContainer"]
-margin_top = 24.0
-margin_right = 197.0
-margin_bottom = 44.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 10 )
-text = "Chicken Rice Nation"
-autowrap = true
+[node name="LotPanel4" parent="Mall Viewer/Margins/Info/Lots" instance=ExtResource( 10 )]
+margin_top = 186.0
+margin_right = 201.0
+margin_bottom = 368.0
+lot_id = 4
 
-[node name="Stats" type="GridContainer" parent="Mall Viewer/Margins/Info/Outlets/Outlet Panel/VBoxContainer"]
-editor/display_folded = true
-margin_top = 48.0
-margin_right = 197.0
-margin_bottom = 92.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 2
+[node name="LotPanel5" parent="Mall Viewer/Margins/Info/Lots" instance=ExtResource( 10 )]
+margin_left = 205.0
+margin_top = 186.0
+margin_right = 406.0
+margin_bottom = 368.0
+lot_id = 5
 
-[node name="Customers Label" type="Label" parent="Mall Viewer/Margins/Info/Outlets/Outlet Panel/VBoxContainer/Stats"]
-margin_right = 81.0
-margin_bottom = 20.0
-text = "Customers:"
-
-[node name="Customers Value" type="Label" parent="Mall Viewer/Margins/Info/Outlets/Outlet Panel/VBoxContainer/Stats"]
-margin_left = 85.0
-margin_right = 187.0
-margin_bottom = 20.0
-text = "10/10"
-
-[node name="Net Worth Label" type="Label" parent="Mall Viewer/Margins/Info/Outlets/Outlet Panel/VBoxContainer/Stats"]
-margin_top = 24.0
-margin_right = 81.0
-margin_bottom = 44.0
-text = "Net Worth:"
-
-[node name="Net Worth Value" type="Label" parent="Mall Viewer/Margins/Info/Outlets/Outlet Panel/VBoxContainer/Stats"]
-margin_left = 85.0
-margin_top = 24.0
-margin_right = 187.0
-margin_bottom = 44.0
-text = "$1,000,000.00"
-
-[node name="Button2" type="Button" parent="Mall Viewer/Margins/Info/Outlets/Outlet Panel/VBoxContainer"]
-margin_top = 96.0
-margin_right = 197.0
-margin_bottom = 122.0
-text = "Negotiate Purchase"
-
-[node name="PanelContainer2" type="PanelContainer" parent="Mall Viewer/Margins/Info/Outlets"]
-margin_left = 215.0
-margin_right = 426.0
-margin_bottom = 136.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Mall Viewer/Margins/Info/Outlets/PanelContainer2"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 204.0
-margin_bottom = 129.0
-
-[node name="Lot Id" type="Label" parent="Mall Viewer/Margins/Info/Outlets/PanelContainer2/VBoxContainer"]
-margin_right = 197.0
-margin_bottom = 20.0
-custom_colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
-text = "Lot #2"
-autowrap = true
-
-[node name="Owner Name" type="Label" parent="Mall Viewer/Margins/Info/Outlets/PanelContainer2/VBoxContainer"]
-margin_top = 48.0
-margin_right = 197.0
-margin_bottom = 68.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "No Outlet"
-align = 1
-autowrap = true
-
-[node name="Button2" type="Button" parent="Mall Viewer/Margins/Info/Outlets/PanelContainer2/VBoxContainer"]
-margin_top = 96.0
-margin_right = 197.0
-margin_bottom = 122.0
-text = "Buy Lot"
-
-[node name="PanelContainer3" type="PanelContainer" parent="Mall Viewer/Margins/Info/Outlets"]
-margin_top = 140.0
-margin_right = 211.0
-margin_bottom = 251.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PanelContainer4" type="PanelContainer" parent="Mall Viewer/Margins/Info/Outlets"]
-margin_left = 215.0
-margin_top = 140.0
-margin_right = 426.0
-margin_bottom = 251.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PanelContainer5" type="PanelContainer" parent="Mall Viewer/Margins/Info/Outlets"]
-margin_top = 255.0
-margin_right = 211.0
-margin_bottom = 366.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PanelContainer6" type="PanelContainer" parent="Mall Viewer/Margins/Info/Outlets"]
-margin_left = 215.0
-margin_top = 255.0
-margin_right = 426.0
-margin_bottom = 366.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-[connection signal="mouse_entered" from="Top Menu/Margins/Menu Buttons/F1" to="Top Menu/Margins/Menu Buttons/F1" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Top Menu/Margins/Menu Buttons/F1" to="Top Menu/Margins/Menu Buttons/F1" method="_on_mouse_exited"]
-[connection signal="pressed" from="Top Menu/Margins/Menu Buttons/F1" to="." method="_on_menu_button" binds= [ 0 ]]
-[connection signal="mouse_entered" from="Top Menu/Margins/Menu Buttons/F2" to="Top Menu/Margins/Menu Buttons/F2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Top Menu/Margins/Menu Buttons/F2" to="Top Menu/Margins/Menu Buttons/F2" method="_on_mouse_exited"]
-[connection signal="pressed" from="Top Menu/Margins/Menu Buttons/F2" to="." method="_on_menu_button" binds= [ 1 ]]
+[node name="LotPanel6" parent="Mall Viewer/Margins/Info/Lots" instance=ExtResource( 10 )]
+margin_left = 410.0
+margin_top = 186.0
+margin_right = 611.0
+margin_bottom = 368.0
+lot_id = 6
+[connection signal="mouse_entered" from="Top Menu/Margins/Top Menu Divider/Menu Buttons/F1" to="Top Menu/Margins/Top Menu Divider/Menu Buttons/F1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Top Menu/Margins/Top Menu Divider/Menu Buttons/F1" to="Top Menu/Margins/Top Menu Divider/Menu Buttons/F1" method="_on_mouse_exited"]
+[connection signal="pressed" from="Top Menu/Margins/Top Menu Divider/Menu Buttons/F1" to="." method="_on_menu_button" binds= [ 0 ]]
+[connection signal="mouse_entered" from="Top Menu/Margins/Top Menu Divider/Menu Buttons/F2" to="Top Menu/Margins/Top Menu Divider/Menu Buttons/F2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Top Menu/Margins/Top Menu Divider/Menu Buttons/F2" to="Top Menu/Margins/Top Menu Divider/Menu Buttons/F2" method="_on_mouse_exited"]
+[connection signal="pressed" from="Top Menu/Margins/Top Menu Divider/Menu Buttons/F2" to="." method="_on_menu_button" binds= [ 1 ]]
 [connection signal="pressed" from="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/NameRow/RenameButton" to="." method="_on_RenameButton_pressed"]
+[connection signal="cell_selected" from="Left Side Menu/Company/VSplitContainer/Tabs/Outlets/ScrollContainer/Outlet Tree" to="." method="_on_f1_outlet_tree_cell_selected"]
 [connection signal="confirmed" from="Rename Dialog" to="." method="_on_rename"]
+[connection signal="gui_input" from="Mall Viewer/Margins/Info/Mall Name" to="." method="_on_Mall_Name_gui_input"]

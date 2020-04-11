@@ -1,6 +1,7 @@
 extends TextureButton
 
-export(int, 6) var lots = 6
+class_name Mall
+
 export var rent = 5000.0 # Average value assuming slightly under 1000 sq ft.
 export var prestige = 5.0
 export var customers = 30
@@ -17,7 +18,7 @@ const COLOR_LERP_SPEED = 20.0
 var moused_over = false
 
 var selected = false
-var outlets = []
+var lots = [null, null, null, null, null, null] # hardcoded 6 lots, stores Outlet pointers
 
 signal mall_clicked
 
@@ -52,6 +53,7 @@ func _on_mouse_exited():
 func select():
 	selected = true
 	texture_normal = selected_texture
+	raise()
 
 
 func deselect():

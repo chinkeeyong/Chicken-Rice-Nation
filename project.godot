@@ -8,9 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Control",
+"class": "GUI",
+"language": "GDScript",
+"path": "res://scripts/interface/GUI.gd"
+}, {
+"base": "Node",
+"class": "GameMaster",
+"language": "GDScript",
+"path": "res://scripts/Game Master.gd"
+}, {
+"base": "TextureButton",
+"class": "Mall",
+"language": "GDScript",
+"path": "res://scripts/Mall.gd"
+}, {
+"base": "Node",
+"class": "Outlet",
+"language": "GDScript",
+"path": "res://scripts/Outlet.gd"
+} ]
 _global_script_class_icons={
-
+"GUI": "",
+"GameMaster": "",
+"Mall": "",
+"Outlet": ""
 }
 
 [application]
