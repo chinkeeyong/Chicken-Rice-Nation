@@ -7,59 +7,59 @@
 [ext_resource path="res://scripts/Game Master.gd" type="Script" id=5]
 [ext_resource path="res://scenes/Objects/Company.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gfx/CompanyLogos/001Player.png" type="Texture" id=7]
-[ext_resource path="res://gfx/CompanyLogos/002WcDonalds.png" type="Texture" id=8]
-[ext_resource path="res://gfx/CompanyLogos/KFC.png" type="Texture" id=9]
-[ext_resource path="res://gfx/CompanyLogos/PizzaHouse.png" type="Texture" id=10]
-[ext_resource path="res://gfx/CompanyLogos/003Moonbucks.png" type="Texture" id=11]
-[ext_resource path="res://gfx/CompanyLogos/Burger Lord.png" type="Texture" id=12]
-[ext_resource path="res://gfx/CompanyLogos/Slubway.png" type="Texture" id=13]
-[ext_resource path="res://gfx/CompanyLogos/Davy Jones.png" type="Texture" id=14]
-[ext_resource path="res://gfx/CompanyLogos/MossBurger.png" type="Texture" id=15]
-[ext_resource path="res://gfx/CompanyLogos/JadeCrystal.png" type="Texture" id=16]
-[ext_resource path="res://gfx/CompanyLogos/Lin Tai Fung.png" type="Texture" id=17]
-[ext_resource path="res://gfx/CompanyLogos/DianXiaoYi.png" type="Texture" id=18]
-[ext_resource path="res://gfx/CompanyLogos/StewRestaurant.png" type="Texture" id=19]
-[ext_resource path="res://gfx/CompanyLogos/DuckinDonuts.png" type="Texture" id=20]
-[ext_resource path="res://gfx/CompanyLogos/Taicho.png" type="Texture" id=21]
-[ext_resource path="res://gfx/CompanyLogos/CookingRepublic.png" type="Texture" id=22]
-[ext_resource path="res://gfx/CompanyLogos/Koupitiam.png" type="Texture" id=23]
-[ext_resource path="res://gfx/CompanyLogos/007MenyaMusasho.png" type="Texture" id=24]
-[ext_resource path="res://gfx/CompanyLogos/Nippudo.png" type="Texture" id=25]
-[ext_resource path="res://gfx/CompanyLogos/PoppoRich.png" type="Texture" id=26]
-[ext_resource path="res://gfx/CompanyLogos/KeeNamWee.png" type="Texture" id=27]
-[ext_resource path="res://gfx/CompanyLogos/Stuff's.png" type="Texture" id=28]
-[ext_resource path="res://gfx/CompanyLogos/SakeSushi.png" type="Texture" id=29]
-[ext_resource path="res://gfx/CompanyLogos/AhKun.png" type="Texture" id=30]
-[ext_resource path="res://gfx/CompanyLogos/004NewChangKee.png" type="Texture" id=31]
-[ext_resource path="res://gfx/CompanyLogos/005CheeBengHiang.png" type="Texture" id=32]
-[ext_resource path="res://gfx/CompanyLogos/ATwo.png" type="Texture" id=33]
-[ext_resource path="res://gfx/CompanyLogos/Ajiman.png" type="Texture" id=34]
-[ext_resource path="res://gfx/CompanyLogos/PastaMaria.png" type="Texture" id=35]
-[ext_resource path="res://gfx/CompanyLogos/Jolliwee.png" type="Texture" id=36]
-[ext_resource path="res://gfx/CompanyLogos/Gelato.png" type="Texture" id=37]
-[ext_resource path="res://gfx/CompanyLogos/Daessik.png" type="Texture" id=38]
-[ext_resource path="res://gfx/CompanyLogos/Delifrancais.png" type="Texture" id=39]
-[ext_resource path="res://gfx/CompanyLogos/BreadBox.png" type="Texture" id=40]
-[ext_resource path="res://gfx/CompanyLogos/EighteenConvicts.png" type="Texture" id=41]
-[ext_resource path="res://gfx/CompanyLogos/5Fingers.png" type="Texture" id=42]
-[ext_resource path="res://gfx/CompanyLogos/SengKee.png" type="Texture" id=43]
-[ext_resource path="res://gfx/CompanyLogos/Ichiban.png" type="Texture" id=44]
-[ext_resource path="res://gfx/CompanyLogos/Shabu.png" type="Texture" id=45]
-[ext_resource path="res://gfx/CompanyLogos/TimorThai.png" type="Texture" id=46]
-[ext_resource path="res://gfx/CompanyLogos/HoPho.png" type="Texture" id=47]
-[ext_resource path="res://gfx/CompanyLogos/Park's Bibim.png" type="Texture" id=48]
-[ext_resource path="res://gfx/CompanyLogos/Kuriboh.png" type="Texture" id=49]
-[ext_resource path="res://gfx/CompanyLogos/Bengawan.png" type="Texture" id=50]
-[ext_resource path="res://gfx/CompanyLogos/LohHuoTang.png" type="Texture" id=51]
-[ext_resource path="res://gfx/CompanyLogos/EveryoneACup.png" type="Texture" id=52]
-[ext_resource path="res://gfx/CompanyLogos/GoldCha.png" type="Texture" id=53]
-[ext_resource path="res://gfx/CompanyLogos/NIHo.png" type="Texture" id=54]
-[ext_resource path="res://gfx/CompanyLogos/JacksLocation.png" type="Texture" id=55]
-[ext_resource path="res://gfx/CompanyLogos/Sweden's.png" type="Texture" id=56]
-[ext_resource path="res://gfx/CompanyLogos/BostonFishMarket.png" type="Texture" id=57]
-[ext_resource path="res://gfx/CompanyLogos/Fish&Co.png" type="Texture" id=58]
-[ext_resource path="res://gfx/CompanyLogos/006CravingNasiLemak.png" type="Texture" id=59]
-[ext_resource path="res://gfx/CompanyLogos/LondonThinDuck.png" type="Texture" id=60]
+[ext_resource path="res://gfx/CompanyLogos/Nippudo.png" type="Texture" id=8]
+[ext_resource path="res://gfx/CompanyLogos/JacksLocation.png" type="Texture" id=9]
+[ext_resource path="res://gfx/CompanyLogos/Sweden's.png" type="Texture" id=10]
+[ext_resource path="res://gfx/CompanyLogos/Taicho.png" type="Texture" id=11]
+[ext_resource path="res://gfx/CompanyLogos/SakeSushi.png" type="Texture" id=12]
+[ext_resource path="res://gfx/CompanyLogos/BostonFishMarket.png" type="Texture" id=13]
+[ext_resource path="res://gfx/CompanyLogos/JadeCrystal.png" type="Texture" id=14]
+[ext_resource path="res://gfx/CompanyLogos/Lin Tai Fung.png" type="Texture" id=15]
+[ext_resource path="res://gfx/CompanyLogos/Kuriboh.png" type="Texture" id=16]
+[ext_resource path="res://gfx/CompanyLogos/LondonThinDuck.png" type="Texture" id=17]
+[ext_resource path="res://gfx/CompanyLogos/Fish&Co.png" type="Texture" id=18]
+[ext_resource path="res://gfx/CompanyLogos/TimorThai.png" type="Texture" id=19]
+[ext_resource path="res://gfx/CompanyLogos/DianXiaoYi.png" type="Texture" id=20]
+[ext_resource path="res://gfx/CompanyLogos/007MenyaMusasho.png" type="Texture" id=21]
+[ext_resource path="res://gfx/CompanyLogos/StewRestaurant.png" type="Texture" id=22]
+[ext_resource path="res://gfx/CompanyLogos/002WcDonalds.png" type="Texture" id=23]
+[ext_resource path="res://gfx/CompanyLogos/KFC.png" type="Texture" id=24]
+[ext_resource path="res://gfx/CompanyLogos/PizzaHouse.png" type="Texture" id=25]
+[ext_resource path="res://gfx/CompanyLogos/003Moonbucks.png" type="Texture" id=26]
+[ext_resource path="res://gfx/CompanyLogos/Burger Lord.png" type="Texture" id=27]
+[ext_resource path="res://gfx/CompanyLogos/Slubway.png" type="Texture" id=28]
+[ext_resource path="res://gfx/CompanyLogos/Davy Jones.png" type="Texture" id=29]
+[ext_resource path="res://gfx/CompanyLogos/MossBurger.png" type="Texture" id=30]
+[ext_resource path="res://gfx/CompanyLogos/DuckinDonuts.png" type="Texture" id=31]
+[ext_resource path="res://gfx/CompanyLogos/CookingRepublic.png" type="Texture" id=32]
+[ext_resource path="res://gfx/CompanyLogos/Koupitiam.png" type="Texture" id=33]
+[ext_resource path="res://gfx/CompanyLogos/PoppoRich.png" type="Texture" id=34]
+[ext_resource path="res://gfx/CompanyLogos/KeeNamWee.png" type="Texture" id=35]
+[ext_resource path="res://gfx/CompanyLogos/Stuff's.png" type="Texture" id=36]
+[ext_resource path="res://gfx/CompanyLogos/AhKun.png" type="Texture" id=37]
+[ext_resource path="res://gfx/CompanyLogos/004NewChangKee.png" type="Texture" id=38]
+[ext_resource path="res://gfx/CompanyLogos/005CheeBengHiang.png" type="Texture" id=39]
+[ext_resource path="res://gfx/CompanyLogos/ATwo.png" type="Texture" id=40]
+[ext_resource path="res://gfx/CompanyLogos/Ajiman.png" type="Texture" id=41]
+[ext_resource path="res://gfx/CompanyLogos/PastaMaria.png" type="Texture" id=42]
+[ext_resource path="res://gfx/CompanyLogos/Jolliwee.png" type="Texture" id=43]
+[ext_resource path="res://gfx/CompanyLogos/Gelato.png" type="Texture" id=44]
+[ext_resource path="res://gfx/CompanyLogos/Daessik.png" type="Texture" id=45]
+[ext_resource path="res://gfx/CompanyLogos/Delifrancais.png" type="Texture" id=46]
+[ext_resource path="res://gfx/CompanyLogos/BreadBox.png" type="Texture" id=47]
+[ext_resource path="res://gfx/CompanyLogos/EighteenConvicts.png" type="Texture" id=48]
+[ext_resource path="res://gfx/CompanyLogos/5Fingers.png" type="Texture" id=49]
+[ext_resource path="res://gfx/CompanyLogos/SengKee.png" type="Texture" id=50]
+[ext_resource path="res://gfx/CompanyLogos/Ichiban.png" type="Texture" id=51]
+[ext_resource path="res://gfx/CompanyLogos/Shabu.png" type="Texture" id=52]
+[ext_resource path="res://gfx/CompanyLogos/HoPho.png" type="Texture" id=53]
+[ext_resource path="res://gfx/CompanyLogos/Park's Bibim.png" type="Texture" id=54]
+[ext_resource path="res://gfx/CompanyLogos/Bengawan.png" type="Texture" id=55]
+[ext_resource path="res://gfx/CompanyLogos/LohHuoTang.png" type="Texture" id=56]
+[ext_resource path="res://gfx/CompanyLogos/EveryoneACup.png" type="Texture" id=57]
+[ext_resource path="res://gfx/CompanyLogos/GoldCha.png" type="Texture" id=58]
+[ext_resource path="res://gfx/CompanyLogos/NIHo.png" type="Texture" id=59]
+[ext_resource path="res://gfx/CompanyLogos/006CravingNasiLemak.png" type="Texture" id=60]
 [ext_resource path="res://scenes/Objects/Mall.tscn" type="PackedScene" id=61]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=62]
 
@@ -577,20 +577,349 @@ player_company_path = NodePath("../Companies/Chicken Rice Nation")
 subtitle = "Your Company"
 logo = ExtResource( 7 )
 maximum_seed_prestige = 1.0
-cash = 5000.0
+cash = 2000.0
+
+[node name="Chinoiserie" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Ridiculously Postmodern Fusion Gourmet"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Motorina Pizza" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Award-Winning New York Pizza"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Bread Road Kitchen" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Celebrity Chef Approved Al Fresco"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="RISEN" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Ridiculously Rich Asian Buffet"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Violet Eun Satay Bar" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "World's Most Expensive Peranakan Cuisine"
+brand_strength = 80.0
+seed_count = 2
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Gaku by Tetsuya Gakuda" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Tiniest Portions Or Your Money Back"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="ÇA VA SkyBar" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Panoramic Rooftop Lounge"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Club66" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "The Most Atas Bar, Literally"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="CHOP" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Appropriately Named Gourmet Steakhouse"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Spego Dining Room" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Beverly Hills Decadence"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="DustIN" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Celebrity Chef Namesake Bar"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Kings" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Invitation-Only Nightclub & Bar"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="GOMA Singapore" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hyperdimensional Dining Experience"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="LAVA Italian Restaurant" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "The Hottest Lounge, Mamma Mia"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Le Blanc" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Fancy Expat Nightclub"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Dumbo Seafood" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "International Chilli Crab"
+brand_strength = 80.0
+seed_count = 2
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Birdyard" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Voted Best American Restaurant"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Kuren Bar & Lounge" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "It's Like Double Relaxation"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="MARQUIS Singapore" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Twenty Seconds Into The Future Nightclub"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Ta Maison" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Classy Japanese-Western Franchise"
+brand_strength = 80.0
+seed_count = 3
+minimum_seed_prestige = 30.0
+cash = 3e+006
+
+[node name="White Tap Craft Burgers" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "New York City Gourmet"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Heavenly Dong" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Out-Of-This-World Chinese Sausage"
+brand_strength = 80.0
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Tim Mo Wan" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "These Dim Sum Have Michelin Stars"
+brand_strength = 80.0
+seed_count = 3
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Poulette" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Like Chicken, But Fancier"
+brand_strength = 80.0
+seed_count = 2
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Imperious Treasure" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Even The Food Judges You"
+brand_strength = 80.0
+seed_count = 2
+minimum_seed_prestige = 50.0
+cash = 1e+007
+
+[node name="Da Pola Gastronomia" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Italian Gourmet Deli Cafe"
+brand_strength = 80.0
+seed_count = 2
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="TCC" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "What Does It Stand For Again?"
+brand_strength = 75.0
+seed_count = 2
+minimum_seed_prestige = 50.0
+cash = 3e+006
+
+[node name="Nippudo" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Famous Ramen Chain"
+logo = ExtResource( 8 )
+brand_strength = 50.0
+seed_count = 3
+minimum_seed_prestige = 10.0
+cash = 500000.0
+
+[node name="HaiDiLou Hotpot" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Ridiculously Popular Sichuan Hotpot"
+brand_strength = 50.0
+seed_count = 3
+minimum_seed_prestige = 10.0
+cash = 500000.0
+
+[node name="Hongwan" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Yunnan Noodle Franchise"
+brand_strength = 50.0
+seed_count = 3
+minimum_seed_prestige = 10.0
+cash = 3e+006
+
+[node name="Nondo's" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Chicken Rice, But Portuguese"
+brand_strength = 50.0
+seed_count = 3
+minimum_seed_prestige = 30.0
+cash = 3e+006
+
+[node name="Jack's Location" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Overpriced Steakhouse"
+logo = ExtResource( 9 )
+brand_strength = 10.0
+seed_count = 7
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 10.0
+cash = 200000.0
+
+[node name="Sweden's" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Ice Cream Restaurant"
+logo = ExtResource( 10 )
+brand_strength = 10.0
+seed_count = 5
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 10.0
+cash = 500000.0
+
+[node name="Taicho Sushi" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Premium Handmade Sushi"
+logo = ExtResource( 11 )
+brand_strength = 50.0
+seed_count = 3
+minimum_seed_prestige = 6.0
+cash = 1.2e+006
+
+[node name="Sake Sushi" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Froggy Sushi Buffet"
+logo = ExtResource( 12 )
+brand_strength = 30.0
+seed_count = 10
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 30.0
+cash = 500000.0
+
+[node name="Boston Fish Market" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Flame Grilled Seafood"
+logo = ExtResource( 13 )
+brand_strength = 20.0
+seed_count = 7
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 20.0
+cash = 500000.0
+
+[node name="Jade Crystal Kitchen" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Expensive Chinese Restaurant"
+logo = ExtResource( 14 )
+brand_strength = 50.0
+seed_count = 3
+minimum_seed_prestige = 6.0
+cash = 1e+007
+
+[node name="Lin Tai Fung" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Fancy Hong Kong Restaurant"
+logo = ExtResource( 15 )
+brand_strength = 50.0
+seed_count = 3
+minimum_seed_prestige = 6.0
+cash = 1e+007
+
+[node name="Kuriboh Japanese Market" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Literally Just a Fish Market... But Exotic"
+logo = ExtResource( 16 )
+brand_strength = 20.0
+seed_count = 10
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 20.0
+cash = 200000.0
+
+[node name="London Thin Duck" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Not Actually From London"
+logo = ExtResource( 17 )
+brand_strength = 5.0
+seed_count = 3
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 30.0
+cash = 200000.0
+
+[node name="Fish & Corporation" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Award-Winning Local Fish & Chips"
+logo = ExtResource( 18 )
+brand_strength = 20.0
+seed_count = 10
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 20.0
+cash = 200000.0
+
+[node name="Timor Thai" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Indonesian-Thai Fusion Cuisine"
+logo = ExtResource( 19 )
+brand_strength = 20.0
+seed_count = 6
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 20.0
+cash = 200000.0
+
+[node name="Dian Xiao Yi" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Old School Chinese Restaurant"
+logo = ExtResource( 20 )
+brand_strength = 50.0
+seed_count = 3
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 20.0
+cash = 1e+007
+
+[node name="Menya Musasho" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Ramen You Can Sharpen a Katana On"
+logo = ExtResource( 21 )
+brand_strength = 20.0
+seed_count = 15
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 20.0
+cash = 1.2e+006
+
+[node name="Stew Restaurant" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Nostalgic Chinatown Soup & Chicken"
+logo = ExtResource( 22 )
+brand_strength = 30.0
+seed_count = 3
+minimum_seed_prestige = 6.0
+maximum_seed_prestige = 30.0
+cash = 5e+006
+
+[node name="Cadele" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Nutritious All-Day Dining"
+brand_strength = 50.0
+seed_count = 10
+minimum_seed_prestige = 6.0
+cash = 1.2e+006
 
 [node name="WcDonald's" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Infamous Fast Food Giant"
-logo = ExtResource( 8 )
+logo = ExtResource( 23 )
 brand_strength = 100.0
-seed_count = 70
+seed_count = 65
 minimum_seed_prestige = 5.0
 maximum_seed_prestige = 20.0
 cash = 6e+008
 
 [node name="Kennedy Fried Chicken" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Finger Licking Good"
-logo = ExtResource( 9 )
+logo = ExtResource( 24 )
 brand_strength = 100.0
 seed_count = 50
 minimum_seed_prestige = 5.0
@@ -599,16 +928,16 @@ cash = 5e+008
 
 [node name="Pizza House" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Aggressively Mediocre Pan Pizza Giant"
-logo = ExtResource( 10 )
+logo = ExtResource( 25 )
 brand_strength = 75.0
-seed_count = 40
+seed_count = 35
 minimum_seed_prestige = 5.0
 maximum_seed_prestige = 20.0
 cash = 5e+008
 
 [node name="Moonbucks" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Lifestyle Coffee Chain"
-logo = ExtResource( 11 )
+logo = ExtResource( 26 )
 brand_strength = 100.0
 seed_count = 40
 minimum_seed_prestige = 5.0
@@ -617,16 +946,15 @@ cash = 4.5e+008
 
 [node name="Burger Lord" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Royalist Fast Food Franchise"
-logo = ExtResource( 12 )
+logo = ExtResource( 27 )
 brand_strength = 80.0
 seed_count = 20
 minimum_seed_prestige = 5.0
-maximum_seed_prestige = 20.0
 cash = 5e+008
 
 [node name="Slubway" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Eat Fresh"
-logo = ExtResource( 13 )
+logo = ExtResource( 28 )
 brand_strength = 80.0
 seed_count = 20
 minimum_seed_prestige = 5.0
@@ -635,7 +963,7 @@ cash = 5e+008
 
 [node name="Long Joan Silver's" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Surf and Turf"
-logo = ExtResource( 14 )
+logo = ExtResource( 29 )
 brand_strength = 50.0
 seed_count = 20
 minimum_seed_prestige = 5.0
@@ -644,66 +972,24 @@ cash = 6e+007
 
 [node name="Moss Burger" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Quirky Japanese Fast Food"
-logo = ExtResource( 15 )
+logo = ExtResource( 30 )
 brand_strength = 50.0
 seed_count = 10
 minimum_seed_prestige = 5.0
 maximum_seed_prestige = 20.0
 cash = 2.5e+007
 
-[node name="Jade Crystal Kitchen" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Expensive Chinese Restaurant"
-logo = ExtResource( 16 )
-brand_strength = 50.0
-seed_count = 3
-minimum_seed_prestige = 6.0
-cash = 1e+007
-
-[node name="Lin Tai Fung" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Fancy Hong Kong Restaurant"
-logo = ExtResource( 17 )
-brand_strength = 50.0
-seed_count = 3
-minimum_seed_prestige = 5.0
-cash = 1e+007
-
-[node name="Dian Xiao Yi" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Old School Chinese Restaurant"
-logo = ExtResource( 18 )
-brand_strength = 50.0
-seed_count = 3
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 20.0
-cash = 1e+007
-
-[node name="Stew Restaurant" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Nostalgic Chinatown Soup & Chicken"
-logo = ExtResource( 19 )
-brand_strength = 30.0
-seed_count = 3
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 30.0
-cash = 5e+006
-
 [node name="Duckin' Donuts" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "American Donuts & Coffee"
-logo = ExtResource( 20 )
+logo = ExtResource( 31 )
 brand_strength = 50.0
 seed_count = 5
 minimum_seed_prestige = 5.0
 cash = 1e+007
 
-[node name="Taicho Sushi" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Premium Handmade Sushi"
-logo = ExtResource( 21 )
-brand_strength = 50.0
-seed_count = 3
-minimum_seed_prestige = 6.0
-cash = 1.2e+006
-
 [node name="Cooking Republic" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Entrenched Food Court Chain"
-logo = ExtResource( 22 )
+logo = ExtResource( 32 )
 brand_strength = 30.0
 seed_count = 15
 minimum_seed_prestige = 5.0
@@ -712,33 +998,16 @@ cash = 1.2e+006
 
 [node name="Koupitiam" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Local Food Court Chain"
-logo = ExtResource( 23 )
+logo = ExtResource( 33 )
 brand_strength = 10.0
 seed_count = 10
 minimum_seed_prestige = 5.0
 maximum_seed_prestige = 10.0
 cash = 1.2e+006
 
-[node name="Menya Musasho" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Ramen but Samurai Style"
-logo = ExtResource( 24 )
-brand_strength = 20.0
-seed_count = 15
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 20.0
-cash = 1.2e+006
-
-[node name="Nippudo" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Famous Ramen Chain"
-logo = ExtResource( 25 )
-brand_strength = 50.0
-seed_count = 3
-minimum_seed_prestige = 5.0
-cash = 500000.0
-
 [node name="PoppoRich" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Malaysian Hawker Food, But Singaporean"
-logo = ExtResource( 26 )
+subtitle = "Malaysian Hawker Food"
+logo = ExtResource( 34 )
 brand_strength = 20.0
 seed_count = 5
 minimum_seed_prestige = 5.0
@@ -747,7 +1016,7 @@ cash = 500000.0
 
 [node name="Kee Nam Wee Chicken Rice" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Multinational Chicken Rice Competitor"
-logo = ExtResource( 27 )
+logo = ExtResource( 35 )
 brand_strength = 20.0
 seed_count = 5
 minimum_seed_prestige = 5.0
@@ -756,25 +1025,16 @@ cash = 1e+007
 
 [node name="Stuff's" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Fresh Grilled Kebabs"
-logo = ExtResource( 28 )
+logo = ExtResource( 36 )
 brand_strength = 20.0
 seed_count = 10
 minimum_seed_prestige = 5.0
 maximum_seed_prestige = 20.0
 cash = 500000.0
 
-[node name="Sake Sushi" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Froggy Sushi Buffet"
-logo = ExtResource( 29 )
-brand_strength = 30.0
-seed_count = 10
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 30.0
-cash = 500000.0
-
 [node name="Ah Kun Kaya Toast" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Local Success Story Cafe"
-logo = ExtResource( 30 )
+logo = ExtResource( 37 )
 brand_strength = 30.0
 seed_count = 10
 minimum_seed_prestige = 5.0
@@ -783,7 +1043,7 @@ cash = 500000.0
 
 [node name="New Chang Kee" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Homegrown Snack Stall"
-logo = ExtResource( 31 )
+logo = ExtResource( 38 )
 brand_strength = 20.0
 seed_count = 20
 minimum_seed_prestige = 5.0
@@ -792,16 +1052,15 @@ cash = 1.2e+006
 
 [node name="Chee Beng Hiang" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "CNY-Dependent Bak Kwa Vendor"
-logo = ExtResource( 32 )
+logo = ExtResource( 39 )
 brand_strength = 30.0
 seed_count = 15
 minimum_seed_prestige = 5.0
-maximum_seed_prestige = 30.0
 cash = 1.2e+006
 
 [node name="A-Two Claypot House" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Chinese Claypot Rice"
-logo = ExtResource( 33 )
+logo = ExtResource( 40 )
 brand_strength = 10.0
 seed_count = 10
 minimum_seed_prestige = 5.0
@@ -810,16 +1069,16 @@ cash = 500000.0
 
 [node name="Ajisun Ramen" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Infamous Ramen Joint"
-logo = ExtResource( 34 )
+logo = ExtResource( 41 )
 brand_strength = 20.0
-seed_count = 20
+seed_count = 19
 minimum_seed_prestige = 5.0
 maximum_seed_prestige = 20.0
 cash = 500000.0
 
 [node name="PastaMaria" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Underwhelming Casual Italian Restaurant"
-logo = ExtResource( 35 )
+logo = ExtResource( 42 )
 brand_strength = 10.0
 seed_count = 5
 minimum_seed_prestige = 5.0
@@ -828,7 +1087,7 @@ cash = 500000.0
 
 [node name="Jolliwee" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Relentlessly Exuberant Filipino Fast Food"
-logo = ExtResource( 36 )
+logo = ExtResource( 43 )
 brand_strength = 10.0
 seed_count = 5
 minimum_seed_prestige = 5.0
@@ -837,7 +1096,7 @@ cash = 500000.0
 
 [node name="Geláto" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Confused Pseudo-European Waffle Shop"
-logo = ExtResource( 37 )
+logo = ExtResource( 44 )
 brand_strength = 10.0
 seed_count = 5
 minimum_seed_prestige = 5.0
@@ -846,7 +1105,7 @@ cash = 500000.0
 
 [node name="Daessik Korean BBQ" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Korean BBQ Buffet"
-logo = ExtResource( 38 )
+logo = ExtResource( 45 )
 brand_strength = 10.0
 seed_count = 5
 minimum_seed_prestige = 5.0
@@ -855,16 +1114,16 @@ cash = 500000.0
 
 [node name="Délifrançais" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Les sandwichs à l'européenne"
-logo = ExtResource( 39 )
+logo = ExtResource( 46 )
 brand_strength = 20.0
-seed_count = 10
+seed_count = 5
 minimum_seed_prestige = 5.0
 maximum_seed_prestige = 20.0
 cash = 500000.0
 
 [node name="Bread Box" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Nostalgic Local Cafe"
-logo = ExtResource( 40 )
+logo = ExtResource( 47 )
 brand_strength = 5.0
 seed_count = 15
 minimum_seed_prestige = 5.0
@@ -873,7 +1132,7 @@ cash = 500000.0
 
 [node name="Eighteen Convicts" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Straits Times Darling Social Enterprise"
-logo = ExtResource( 41 )
+logo = ExtResource( 48 )
 brand_strength = 5.0
 seed_count = 5
 minimum_seed_prestige = 5.0
@@ -882,7 +1141,7 @@ cash = 100000.0
 
 [node name="5Fingers Crispy Chicken" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Guilty Pleasure"
-logo = ExtResource( 42 )
+logo = ExtResource( 49 )
 brand_strength = 5.0
 seed_count = 10
 minimum_seed_prestige = 5.0
@@ -891,16 +1150,16 @@ cash = 100000.0
 
 [node name="Seng Kee Dessert" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Chinese Noodles and Desserts"
-logo = ExtResource( 43 )
+logo = ExtResource( 50 )
 brand_strength = 10.0
-seed_count = 10
-minimum_seed_prestige = 5.0
+seed_count = 6
+minimum_seed_prestige = 6.0
 maximum_seed_prestige = 10.0
 cash = 100000.0
 
 [node name="Ichiban Hoshi" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Bourgeois Japanese Restaurant"
-logo = ExtResource( 44 )
+logo = ExtResource( 51 )
 brand_strength = 20.0
 seed_count = 10
 minimum_seed_prestige = 5.0
@@ -909,25 +1168,16 @@ cash = 100000.0
 
 [node name="Shabu Sui" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Exotic Japanese Hotpot"
-logo = ExtResource( 45 )
+logo = ExtResource( 52 )
 brand_strength = 30.0
 seed_count = 5
 minimum_seed_prestige = 5.0
 maximum_seed_prestige = 30.0
 cash = 100000.0
 
-[node name="Timor Thai" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Indonesian-Thai Fusion Cuisine"
-logo = ExtResource( 46 )
-brand_strength = 20.0
-seed_count = 10
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 20.0
-cash = 200000.0
-
 [node name="Ho Pho" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Austerely Communist Vietnamese Noodles"
-logo = ExtResource( 47 )
+logo = ExtResource( 53 )
 brand_strength = 20.0
 seed_count = 5
 minimum_seed_prestige = 5.0
@@ -936,25 +1186,16 @@ cash = 200000.0
 
 [node name="Park's Bibim" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Mixed Rice... But Korean"
-logo = ExtResource( 48 )
+logo = ExtResource( 54 )
 brand_strength = 20.0
 seed_count = 5
 minimum_seed_prestige = 5.0
 maximum_seed_prestige = 20.0
 cash = 100000.0
 
-[node name="Kuriboh Japanese Market" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Literally Just a Fish Market... But Exotic"
-logo = ExtResource( 49 )
-brand_strength = 20.0
-seed_count = 10
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 20.0
-cash = 200000.0
-
-[node name="Bengawan Single" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Local Cake Shop"
-logo = ExtResource( 50 )
+[node name="Bengawan Yolo" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Ramen You Can Sharpen a Katana On"
+logo = ExtResource( 55 )
 brand_strength = 20.0
 seed_count = 15
 minimum_seed_prestige = 5.0
@@ -963,7 +1204,7 @@ cash = 200000.0
 
 [node name="Luo Huo Tang" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Chinese Soup Franchise"
-logo = ExtResource( 51 )
+logo = ExtResource( 56 )
 brand_strength = 5.0
 seed_count = 10
 minimum_seed_prestige = 5.0
@@ -972,7 +1213,7 @@ cash = 100000.0
 
 [node name="Everyone-a-Cup" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Beloved Bubble Tea Chain"
-logo = ExtResource( 52 )
+logo = ExtResource( 57 )
 brand_strength = 20.0
 seed_count = 15
 minimum_seed_prestige = 5.0
@@ -981,7 +1222,7 @@ cash = 200000.0
 
 [node name="Gold Cha" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Taiwanese Bubble Tea Chain"
-logo = ExtResource( 53 )
+logo = ExtResource( 58 )
 brand_strength = 30.0
 seed_count = 15
 minimum_seed_prestige = 5.0
@@ -990,64 +1231,18 @@ cash = 200000.0
 
 [node name="NiHo" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Attempted Local Bubble Tea Chain"
-logo = ExtResource( 54 )
+logo = ExtResource( 59 )
 brand_strength = 5.0
 seed_count = 10
 minimum_seed_prestige = 5.0
 maximum_seed_prestige = 10.0
 cash = 5000.0
 
-[node name="Jack's Location" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Overpriced Steakhouse"
-logo = ExtResource( 55 )
-brand_strength = 10.0
-seed_count = 10
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 10.0
-cash = 200000.0
-
-[node name="Sweden's" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Ice Cream Restaurant"
-logo = ExtResource( 56 )
-brand_strength = 10.0
-seed_count = 10
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 10.0
-cash = 500000.0
-
-[node name="Boston Fish Market" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Flame Grilled Seafood"
-logo = ExtResource( 57 )
-brand_strength = 20.0
-seed_count = 10
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 20.0
-cash = 500000.0
-
-[node name="Fish & Corporation" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Award-Winning Local Fish & Chips"
-logo = ExtResource( 58 )
-brand_strength = 20.0
-seed_count = 10
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 20.0
-cash = 200000.0
-
 [node name="Craving Nasi Lemak" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Upstart from Selera Rasa"
-logo = ExtResource( 59 )
-brand_strength = 5.0
-seed_count = 10
-maximum_seed_prestige = 5.0
-cash = 200000.0
-
-[node name="London Thin Duck" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Not Actually From London"
 logo = ExtResource( 60 )
 brand_strength = 5.0
-seed_count = 3
-minimum_seed_prestige = 5.0
-maximum_seed_prestige = 30.0
+seed_count = 10
 cash = 200000.0
 
 [node name="Super Western Food" parent="Companies" instance=ExtResource( 6 )]
@@ -1061,6 +1256,16 @@ maximum_seed_prestige = 4.0
 cash = 5000.0
 
 [node name="Lucky Western Food" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Amoy Western Food" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Tendercrisp Western Food" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
@@ -1101,6 +1306,11 @@ maximum_seed_prestige = 4.0
 cash = 5000.0
 
 [node name="Kee Loy Chicken Rice" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Penang Chicken Rice" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
@@ -1165,6 +1375,21 @@ subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
 
+[node name="Humji Seafood" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="448 Seafood" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Old Airport Seafood" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
 [node name="Wanda Seafood" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
@@ -1220,6 +1445,11 @@ subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
 
+[node name="Xiang Zheng Hotpot" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
 [node name="XO Hor Fun" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
@@ -1241,6 +1471,11 @@ maximum_seed_prestige = 4.0
 cash = 5000.0
 
 [node name="Toh Kee Hor Fun" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Ma Ma Hor Fun" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
@@ -1271,6 +1506,11 @@ maximum_seed_prestige = 4.0
 cash = 5000.0
 
 [node name="Eng Yap Hokkien Mee" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Dempsey Hokkien Mee" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
@@ -1306,6 +1546,46 @@ maximum_seed_prestige = 4.0
 cash = 5000.0
 
 [node name="Flying Rojak" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Mamak's Rojak" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Famous Rojak" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Hover Rojak" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Toh Teck Popiah" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Sin Miao Popiah" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Auntie Popiah" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Long House Popiah" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Chin Ann Popiah" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
@@ -1400,7 +1680,32 @@ subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
 
+[node name="Super Indian Muslim Food" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
 [node name="Syam Muslim Food" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Sapiah Muslim Stall" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Hairul Muslim Stall" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Iskandar Muslim Food" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Habib's Muslim Stall" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
@@ -1430,12 +1735,67 @@ subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
 
+[node name="Amir Muslim Food" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
 [node name="Aisha Nasi Padang" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
 
 [node name="Ayam Penyet King" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Ming Sin Roti Prata" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Al Azmath Prata" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Ar Rahman Roti Prata" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Mohgan's Roti Prata" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Rahmath Prata" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Fatimah Cheese Prata" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="AA Indian Food" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Al Kamal Prata" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Sri Nagari Prata" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="787 Prata" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
@@ -1555,12 +1915,27 @@ subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
 
+[node name="Prosperity Mixed Rice" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
 [node name="Shi Foo Mixed Rice" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
 
 [node name="Kim Economy Rice" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Ah Teck Economy Rice" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Soon Keat Mixed Rice" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
@@ -1596,6 +1971,31 @@ maximum_seed_prestige = 4.0
 cash = 5000.0
 
 [node name="Huo Laksa" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="White Tiger Laksa" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Tasty Laksa" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Mun Kit Prawn Noodle" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Sam Seng Prawn Noodle" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Fortune Prawn Noodle" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
@@ -1636,6 +2036,16 @@ maximum_seed_prestige = 4.0
 cash = 5000.0
 
 [node name="L64 Handmade Noodles" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Sui Mei Minced Pork Noodle" parent="Companies" instance=ExtResource( 6 )]
+subtitle = "Hawker Stall"
+maximum_seed_prestige = 4.0
+cash = 5000.0
+
+[node name="Penang Wonton Noodle" parent="Companies" instance=ExtResource( 6 )]
 subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
@@ -1695,13 +2105,6 @@ subtitle = "Hawker Stall"
 maximum_seed_prestige = 4.0
 cash = 5000.0
 
-[node name="Dumbo Chilli Crab" parent="Companies" instance=ExtResource( 6 )]
-subtitle = "Hawker Stall"
-brand_strength = 2.0
-seed_count = 2
-maximum_seed_prestige = 4.0
-cash = 5000.0
-
 [node name="Malls" type="Node" parent="."]
 
 [node name="Sun Plaza" parent="Malls" instance=ExtResource( 61 )]
@@ -1732,10 +2135,11 @@ margin_bottom = -1095.72
 rent = 3000.0
 
 [node name="Causeway Point" parent="Malls" instance=ExtResource( 61 )]
-margin_left = -710.94
+margin_left = -708.548
 margin_top = -1103.19
-margin_right = -678.94
+margin_right = -676.548
 margin_bottom = -1066.19
+prestige = 6.0
 
 [node name="Woodlands Neighborhood" parent="Malls" instance=ExtResource( 61 )]
 margin_left = -645.803
@@ -1758,6 +2162,7 @@ margin_left = 11.5786
 margin_top = -1029.47
 margin_right = 43.5786
 margin_bottom = -992.475
+prestige = 6.0
 
 [node name="Yishun Neighborhood" parent="Malls" instance=ExtResource( 61 )]
 margin_left = 113.46
@@ -1865,18 +2270,21 @@ margin_left = 1134.46
 margin_top = -473.584
 margin_right = 1166.46
 margin_bottom = -436.584
+prestige = 6.0
 
 [node name="Compass One" parent="Malls" instance=ExtResource( 61 )]
 margin_left = 837.205
 margin_top = -443.859
 margin_right = 869.205
 margin_bottom = -406.859
+prestige = 6.0
 
 [node name="Rivervale Mall" parent="Malls" instance=ExtResource( 61 )]
 margin_left = 1012.85
 margin_top = -427.645
 margin_right = 1044.85
 margin_bottom = -390.645
+prestige = 6.0
 
 [node name="Greenwich V" parent="Malls" instance=ExtResource( 61 )]
 margin_left = 463.916
@@ -1890,13 +2298,12 @@ margin_top = -274.724
 margin_right = 1534.85
 margin_bottom = -237.724
 rent = 3000.0
-prestige = 3.0
 
 [node name="Pasir Ris Neighborhood" parent="Malls" instance=ExtResource( 61 )]
 margin_left = 1408.2
-margin_top = -221.15
+margin_top = -223.001
 margin_right = 1440.2
-margin_bottom = -184.15
+margin_bottom = -186.001
 rent = 2500.0
 prestige = 1.0
 
@@ -1987,6 +2394,7 @@ margin_left = -934.498
 margin_top = 48.2304
 margin_right = -902.498
 margin_bottom = 85.2304
+prestige = 6.0
 
 [node name="Bukit Batok Neighborhood" parent="Malls" instance=ExtResource( 61 )]
 margin_left = -794.871
@@ -2007,12 +2415,14 @@ margin_left = 1657.39
 margin_top = 89.7579
 margin_right = 1689.39
 margin_bottom = 126.758
+prestige = 6.0
 
 [node name="Century Square" parent="Malls" instance=ExtResource( 61 )]
-margin_left = 1618.22
+margin_left = 1616.37
 margin_top = 98.2734
-margin_right = 1650.22
+margin_right = 1648.37
 margin_bottom = 135.273
+prestige = 6.0
 
 [node name="Tampines Neighborhood" parent="Malls" instance=ExtResource( 61 )]
 margin_left = 1659.23
@@ -2126,6 +2536,7 @@ margin_top = 582.837
 margin_right = 849.442
 margin_bottom = 619.837
 rent = 7500.0
+prestige = 6.0
 
 [node name="Tanjong Katong Complex" parent="Malls" instance=ExtResource( 61 )]
 margin_left = 840.913
@@ -2167,12 +2578,14 @@ margin_left = 778.846
 margin_top = 667.705
 margin_right = 810.846
 margin_bottom = 704.705
+prestige = 6.0
 
 [node name="Bedok Mall" parent="Malls" instance=ExtResource( 61 )]
 margin_left = 1328.22
 margin_top = 482.869
 margin_right = 1360.22
 margin_bottom = 519.869
+prestige = 6.0
 
 [node name="Bedok Point" parent="Malls" instance=ExtResource( 61 )]
 margin_left = 1396.34
@@ -2266,24 +2679,28 @@ margin_top = 339.063
 margin_right = -1314.48
 margin_bottom = 376.063
 rent = 7500.0
+prestige = 10.0
 
 [node name="JCube" parent="Malls" instance=ExtResource( 61 )]
 margin_left = -1394.21
 margin_top = 369.856
 margin_right = -1362.21
 margin_bottom = 406.856
+prestige = 6.0
 
 [node name="IMM" parent="Malls" instance=ExtResource( 61 )]
 margin_left = -1274.85
 margin_top = 372.915
 margin_right = -1242.85
 margin_bottom = 409.915
+prestige = 6.0
 
 [node name="Jem" parent="Malls" instance=ExtResource( 61 )]
 margin_left = -1343.31
 margin_top = 392.912
 margin_right = -1311.31
 margin_bottom = 429.912
+prestige = 6.0
 
 [node name="Jurong East Neighborhood" parent="Malls" instance=ExtResource( 61 )]
 margin_left = -1181.24
@@ -2372,6 +2789,7 @@ margin_top = 362.49
 margin_right = 1861.39
 margin_bottom = 399.49
 rent = 6000.0
+prestige = 6.0
 
 [node name="Clementi Mall" parent="Malls" instance=ExtResource( 61 )]
 margin_left = -1025.81
@@ -2431,6 +2849,7 @@ margin_top = 749.167
 margin_right = -285.089
 margin_bottom = 786.167
 rent = 10000.0
+prestige = 6.0
 
 [node name="River Valley Neighborhood" parent="Malls" instance=ExtResource( 61 )]
 margin_left = -184.624
@@ -2646,7 +3065,7 @@ margin_top = 1020.16
 margin_right = 208.073
 margin_bottom = 1057.16
 rent = 35000.0
-prestige = 30.0
+prestige = 50.0
 
 [node name="People's Park Complex" parent="Malls" instance=ExtResource( 61 )]
 margin_left = 103.856

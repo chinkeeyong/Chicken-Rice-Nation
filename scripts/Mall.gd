@@ -3,6 +3,8 @@ extends TextureButton
 class_name Mall
 
 export var rent = 5000.0 # Average value assuming slightly under 1000 sq ft.
+export var revenue = 1000.0
+export var use_custom_revenue = false
 export var prestige = 5.0
 export var customers = 30
 
@@ -28,6 +30,8 @@ func _ready():
 	name_text = $NamePanel/NameText
 	name_panel.hide()
 	name_text.text = name
+	if !use_custom_revenue:
+		revenue = rent * lots.size() / customers
 	deselect()
 
 

@@ -56,6 +56,8 @@ export(NodePath) var mall_viewer_name_path
 var mall_viewer_name
 export(NodePath) var mall_viewer_rent_path
 var mall_viewer_rent
+export(NodePath) var mall_viewer_revenue_path
+var mall_viewer_revenue
 export(NodePath) var mall_viewer_prestige_path
 var mall_viewer_prestige
 export(NodePath) var mall_viewer_customers_path
@@ -122,6 +124,7 @@ func _ready():
 	mall_viewer = get_node(mall_viewer_path)
 	mall_viewer_name = get_node(mall_viewer_name_path)
 	mall_viewer_rent = get_node(mall_viewer_rent_path)
+	mall_viewer_revenue = get_node(mall_viewer_revenue_path)
 	mall_viewer_prestige = get_node(mall_viewer_prestige_path)
 	mall_viewer_customers = get_node(mall_viewer_customers_path)
 	mall_viewer_lots = get_node(mall_viewer_lots_path)
@@ -420,6 +423,7 @@ func update_mall_viewer():
 	if selected_mall != null:
 		mall_viewer_name.text = selected_mall.name
 		mall_viewer_rent.text = money_string(selected_mall.rent)
+		mall_viewer_revenue.text = money_string(selected_mall.revenue)
 		mall_viewer_prestige.text = to_1_significant_digit(selected_mall.prestige)
 		mall_viewer_customers.text = String(selected_mall.customers)
 		

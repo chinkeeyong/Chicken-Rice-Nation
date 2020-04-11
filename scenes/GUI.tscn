@@ -52,6 +52,7 @@ f1_outlet_tree_path = NodePath("Left Side Menu/Company/VSplitContainer/Tabs/Outl
 mall_viewer_path = NodePath("Mall Viewer")
 mall_viewer_name_path = NodePath("Mall Viewer/Margins/Info/Mall Name")
 mall_viewer_rent_path = NodePath("Mall Viewer/Margins/Info/Mall Stats/Rent Value")
+mall_viewer_revenue_path = NodePath("Mall Viewer/Margins/Info/Mall Stats/Revenue Value")
 mall_viewer_prestige_path = NodePath("Mall Viewer/Margins/Info/Mall Stats/Prestige Value")
 mall_viewer_customers_path = NodePath("Mall Viewer/Margins/Info/Mall Stats/Customers Value")
 mall_viewer_lots_path = NodePath("Mall Viewer/Margins/Info/Lots")
@@ -65,6 +66,7 @@ f1_expenditure_tree_acquisition_tooltip = "Acquisition Expenditure is spent to o
 f1_expenditure_tree_other_tooltip = "Other Expenditure sources include Sabotage and random Events."
 
 [node name="Top Menu" type="PanelContainer" parent="."]
+editor/display_folded = true
 margin_left = -4.0
 margin_top = -4.0
 margin_right = 367.0
@@ -150,6 +152,7 @@ mouse_filter = 0
 text = "0"
 
 [node name="Left Side Menu" type="TabContainer" parent="."]
+editor/display_folded = true
 margin_top = 62.0
 margin_right = 490.0
 margin_bottom = 614.0
@@ -497,6 +500,7 @@ text = "Chicken Rice Nation"
 align = 1
 
 [node name="Mall Viewer" type="PanelContainer" parent="."]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = -6.0
@@ -534,7 +538,7 @@ custom_constants/hseparation = 16
 columns = 4
 
 [node name="Rent Label" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_right = 141.0
+margin_right = 164.0
 margin_bottom = 20.0
 hint_tooltip = "Each Outlet in this Mall costs this amount of Expenditure to maintain each quarter."
 mouse_filter = 0
@@ -542,18 +546,60 @@ size_flags_horizontal = 3
 text = "Rent per Lot:"
 
 [node name="Rent Value" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_left = 157.0
-margin_right = 298.0
+margin_left = 180.0
+margin_right = 313.0
 margin_bottom = 20.0
 hint_tooltip = "Each Outlet in this Mall costs this amount of Expenditure to maintain each quarter."
 mouse_filter = 0
 size_flags_horizontal = 3
 text = "0"
 
-[node name="Customers Label" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_left = 314.0
-margin_right = 455.0
+[node name="Prestige Label" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
+margin_left = 329.0
+margin_right = 462.0
 margin_bottom = 20.0
+hint_tooltip = "The Prestige of a Mall reflects its target demographic. Malls with higher Prestige have snobbier Customers who are
+far less likely to patronize Companies with low Brand Strength. A Company's Brand Strength will increase every quarter
+for each Outlet in a Mall with higher Prestige than its Brand Strength."
+mouse_filter = 0
+size_flags_horizontal = 3
+text = "Prestige:"
+
+[node name="Prestige Value" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
+margin_left = 478.0
+margin_right = 611.0
+margin_bottom = 20.0
+hint_tooltip = "The Prestige of a Mall reflects its target demographic. Malls with higher Prestige have snobbier Customers who are
+far less likely to patronize Companies with low Brand Strength. A Company's Brand Strength will increase every quarter
+for each Outlet in a Mall with higher Prestige than its Brand Strength."
+mouse_filter = 0
+size_flags_horizontal = 3
+text = "0"
+
+[node name="Revenue Label" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
+margin_top = 24.0
+margin_right = 164.0
+margin_bottom = 44.0
+hint_tooltip = "How much Income each Customer in this Mall will provide to an Outlet."
+mouse_filter = 0
+size_flags_horizontal = 3
+text = "Revenue per Customer:"
+
+[node name="Revenue Value" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
+margin_left = 180.0
+margin_top = 24.0
+margin_right = 313.0
+margin_bottom = 44.0
+hint_tooltip = "How much Income each Customer in this Mall will provide to an Outlet."
+mouse_filter = 0
+size_flags_horizontal = 3
+text = "0"
+
+[node name="Customers Label" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
+margin_left = 329.0
+margin_top = 24.0
+margin_right = 462.0
+margin_bottom = 44.0
 hint_tooltip = "Malls have a fixed number of Customers. Each Customer will patronize a random Outlet each quarter, causing the
 Company who owns that Outlet to earn Sales Income. A Customer is more likely to patronize a Company with
 high Brand Strength.
@@ -564,37 +610,15 @@ size_flags_horizontal = 3
 text = "Customers:"
 
 [node name="Customers Value" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_left = 471.0
-margin_right = 612.0
-margin_bottom = 20.0
+margin_left = 478.0
+margin_top = 24.0
+margin_right = 611.0
+margin_bottom = 44.0
 hint_tooltip = "Malls have a fixed number of Customers. Each Customer will patronize a random Outlet each quarter, causing the
 Company who owns that Outlet to earn Sales Income. A Customer is more likely to patronize a Company with
 high Brand Strength.
 If a Customer goes to an Outlet but finds that it is full, she will try to find another Outlet in the Mall owned by the
 same Company. If all the Company's Outlets in the Mall are full, she will randomly choose a new Outlet."
-mouse_filter = 0
-size_flags_horizontal = 3
-text = "0"
-
-[node name="Prestige Label" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_top = 24.0
-margin_right = 141.0
-margin_bottom = 44.0
-hint_tooltip = "The Prestige of a Mall reflects its target demographic. Malls with higher Prestige have snobbier Customers who are
-far less likely to patronize Companies with low Brand Strength. A Company's Brand Strength will increase every quarter
-for each Outlet in a Mall with higher Prestige than its Brand Strength."
-mouse_filter = 0
-size_flags_horizontal = 3
-text = "Prestige:"
-
-[node name="Prestige Value" type="Label" parent="Mall Viewer/Margins/Info/Mall Stats"]
-margin_left = 157.0
-margin_top = 24.0
-margin_right = 298.0
-margin_bottom = 44.0
-hint_tooltip = "The Prestige of a Mall reflects its target demographic. Malls with higher Prestige have snobbier Customers who are
-far less likely to patronize Companies with low Brand Strength. A Company's Brand Strength will increase every quarter
-for each Outlet in a Mall with higher Prestige than its Brand Strength."
 mouse_filter = 0
 size_flags_horizontal = 3
 text = "0"

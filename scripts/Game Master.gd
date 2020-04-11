@@ -39,7 +39,7 @@ func seed_outlet(company):
 	randomize()
 	malls.shuffle()
 	var best_mall = null
-	for lot_scanned in range(5): # Prioritize empty malls first before working our way up
+	for lot_scanned in range(6): # Prioritize empty malls first before working our way up
 		for mall in malls:
 			
 			# Don't have multiple outlets in the same mall unless seed multiple is on
@@ -62,3 +62,5 @@ func seed_outlet(company):
 		if best_mall != null:
 			company.create_outlet(best_mall, lot_scanned + 1)
 			break
+	if best_mall == null:
+		print("Couldn't create a mall for %s" % company.name)
