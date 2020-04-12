@@ -43,7 +43,7 @@ func show_outlet(mall, outlet):
 		customers.text = "%s/%s" % [associated_outlet.customers, associated_outlet.max_customers]
 		net_worth.text = GUI.money_string(associated_outlet.net_worth)
 		if associated_outlet.get_parent() == gui.player_company:
-			cost = associated_mall.rent
+			cost = associated_mall.rent * 2
 			buyout_button.text = "Sell (%s)" % GUI.money_string(cost)
 			if associated_outlet.get_parent().outlets.size() == 1:
 				buyout_button.disabled = true

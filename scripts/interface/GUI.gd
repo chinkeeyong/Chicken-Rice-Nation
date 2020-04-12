@@ -27,6 +27,8 @@ export(NodePath) var f1_company_brand_strength_path
 var f1_company_brand_strength
 export(NodePath) var f1_company_net_worth_path
 var f1_company_net_worth
+export(NodePath) var f1_company_control_path
+var f1_company_control
 export(NodePath) var f1_rename_button_path
 var f1_rename_button
 export(NodePath) var f1_sabotage_button_path
@@ -47,6 +49,8 @@ export(NodePath) var f1_balance_path
 var f1_balance
 export(NodePath) var f1_growth_path
 var f1_growth
+export(NodePath) var f1_outlets_tab_path
+var f1_outlets_tab
 export(NodePath) var f1_outlet_tree_path
 var f1_outlet_tree
 
@@ -65,6 +69,11 @@ var mall_viewer_customers
 export(NodePath) var mall_viewer_lots_path
 var mall_viewer_lots
 
+export(NodePath) var date_stamp_path
+var date_stamp
+export(NodePath) var time_stamp_path
+var time_stamp
+
 export(NodePath) var rename_dialog_path
 var rename_dialog
 export(NodePath) var rename_dialog_text_path
@@ -79,6 +88,7 @@ var map
 export(NodePath) var malls_path
 var malls
 
+var total_outlets
 var selected_company
 var selected_mall
 var renamed_company
@@ -86,6 +96,8 @@ var renamed_company
 const POSITIVE_MODIFIER_COLOR = Color(0.5, 1.0, 0.5)
 const NEGATIVE_MODIFIER_COLOR = Color(1.0, 0.5, 0.5)
 const ZERO_MODIFIER_COLOR = Color(1.0, 1.0, 1.0)
+
+signal Next_Month_Button_pressed
 
 
 export(String, MULTILINE) var f1_income_tree_sales_tooltip
@@ -113,12 +125,14 @@ func _ready():
 	f1_company_suspicion = get_node(f1_company_suspicion_path)
 	f1_company_brand_strength = get_node(f1_company_brand_strength_path)
 	f1_company_net_worth = get_node(f1_company_net_worth_path)
+	f1_company_control = get_node(f1_company_control_path)
 	f1_rename_button = get_node(f1_rename_button_path)
 	f1_sabotage_button = get_node(f1_sabotage_button_path)
 	f1_income_tree = get_node(f1_income_tree_path)
 	f1_expenditure_tree = get_node(f1_expenditure_tree_path)
 	f1_balance = get_node(f1_balance_path)
 	f1_growth = get_node(f1_growth_path)
+	f1_outlets_tab = get_node(f1_outlets_tab_path)
 	f1_outlet_tree = get_node(f1_outlet_tree_path)
 	
 	mall_viewer = get_node(mall_viewer_path)
@@ -133,6 +147,9 @@ func _ready():
 		lot.connect("BuyoutButton_pressed", self, "_on_lot_BuyoutButton_pressed")
 		lot.connect("OwnerName_pressed", self, "_on_lot_OwnerName_pressed")
 	
+	date_stamp = get_node(date_stamp_path)
+	time_stamp = get_node(time_stamp_path)
+	
 	rename_dialog = get_node(rename_dialog_path)
 	rename_dialog_text = get_node(rename_dialog_text_path)
 	
@@ -146,6 +163,8 @@ func _ready():
 	for mall in malls.get_children():
 		mall.connect("mall_clicked", self, "_on_mall_clicked")
 	
+	total_outlets = malls.get_child_count() * 6
+	
 	selected_company = player_company
 	
 	construct_f1_income_tree()
@@ -158,11 +177,28 @@ func _ready():
 	mall_viewer.hide()
 
 
+# warning-ignore:unused_argument
+func _process(delta):
+	var time_dict = OS.get_time()
+	var hour = time_dict.get("hour")
+	var minute = time_dict.get("minute")
+	var pm = false
+	if hour > 12:
+		hour -= 12
+		pm = true
+	if pm:
+		time_stamp.text = "%s:%s PM" % [hour, leading_zeroes(minute, 2)]
+	else:
+		time_stamp.text = "%s:%s AM" % [hour, leading_zeroes(minute, 2)]
+
+
 func _input(event):
 	if event.is_action_pressed("ui_menu_f1"):
 		set_left_side_menu_tab(0)
 	elif event.is_action_pressed("ui_menu_f2"):
 		set_left_side_menu_tab(1)
+	elif event.is_action_pressed("ui_next_month"):
+		_on_Next_Month_Button_pressed()
 	elif event.is_action_pressed("ui_cancel"):
 		_on_escape()
 
@@ -226,6 +262,7 @@ func _on_lot_BuyLotButton_pressed(lot):
 	player_company.cash -= lot.cost
 	player_company.expenditure_acquisition -= lot.cost
 	player_company.calc_net_worth()
+	player_company.calc_growth()
 	update_mall_viewer()
 	update_f1()
 
@@ -237,10 +274,15 @@ func _on_lot_BuyoutButton_pressed(lot):
 			player_company.cash += lot.cost
 			player_company.income_liquidation += lot.cost
 		else:
+			lot.associated_outlet.get_parent().cash += lot.cost
+			lot.associated_outlet.get_parent().income_liquidation += lot.cost
+			lot.associated_outlet.get_parent().calc_net_worth()
+			lot.associated_outlet.get_parent().calc_growth()
 			player_company.create_outlet(lot.associated_mall, lot.lot_id)
 			player_company.cash -= lot.cost
 			player_company.expenditure_acquisition -= lot.cost
 		player_company.calc_net_worth()
+		player_company.calc_growth()
 		update_mall_viewer()
 		update_f1()
 
@@ -323,7 +365,7 @@ func construct_f1_outlet_tree():
 	f1_outlet_tree.set_column_title(0, "Location")
 	f1_outlet_tree.set_column_title(1, "Lot")
 	f1_outlet_tree.set_column_title(2, "Customers")
-	f1_outlet_tree.set_column_title(3, "Net Worth")
+	f1_outlet_tree.set_column_title(3, "Revenue")
 	f1_outlet_tree.set_column_titles_visible(true)
 	f1_outlet_tree.set_column_min_width(1, 32)
 	f1_outlet_tree.set_column_min_width(2, 96)
@@ -356,24 +398,27 @@ func update_left_side_menu_tab(tab_id):
 
 
 func update_f1():
-	selected_company.calc_balance()
-	f1_company_logo.texture = selected_company.logo
-	f1_company_name.text = selected_company.name
-	f1_company_subtitle.text = selected_company.subtitle
-	f1_company_cash.text = money_string(selected_company.cash)
-	f1_company_cash.set("custom_colors/font_color", positive_negative_color(selected_company.cash))
-	f1_company_suspicion.text = to_1_significant_digit(selected_company.suspicion)
-	f1_company_brand_strength.text = to_1_significant_digit(selected_company.brand_strength)
-	f1_company_net_worth.text = money_string(selected_company.net_worth)
-	f1_company_net_worth.set("custom_colors/font_color", positive_negative_color(selected_company.net_worth))
-	if selected_company == player_company:
-		f1_rename_button.show()
-		f1_sabotage_button.hide()
-	else:
-		f1_rename_button.hide()
-		f1_sabotage_button.show()
-	update_f1_finances()
-	update_f1_outlets()
+	if selected_company != null:
+		selected_company.calc_balance()
+		f1_company_logo.texture = selected_company.logo
+		f1_company_name.text = selected_company.name
+		f1_company_subtitle.text = selected_company.subtitle
+		f1_company_cash.text = money_string(selected_company.cash)
+		f1_company_cash.set("custom_colors/font_color", positive_negative_color(selected_company.cash))
+		f1_company_suspicion.text = to_1_significant_digit(selected_company.suspicion)
+		f1_company_brand_strength.text = to_1_significant_digit(selected_company.brand_strength)
+		f1_company_net_worth.text = money_string(selected_company.net_worth)
+		f1_company_net_worth.set("custom_colors/font_color", positive_negative_color(selected_company.net_worth))
+		f1_company_control.text = percentile_string(float(selected_company.outlets.size()) / total_outlets)
+		f1_outlets_tab.name = "Outlets (%s)" % selected_company.outlets.size()
+		if selected_company == player_company:
+			f1_rename_button.show()
+			f1_sabotage_button.hide()
+		else:
+			f1_rename_button.hide()
+			f1_sabotage_button.show()
+		update_f1_finances()
+		update_f1_outlets()
 
 
 func update_f1_finances():
@@ -396,7 +441,7 @@ func update_f1_finances():
 	f1_balance.text = signed_money_string(selected_company.balance)
 	f1_balance.set("custom_colors/font_color", positive_negative_color(selected_company.balance))
 	var f1_growth_number = signed_percentile_string(selected_company.growth)
-	f1_growth.text = "%s (Negative Quarters: %s)" % [f1_growth_number, selected_company.quarters_without_growth]
+	f1_growth.text = "%s (Negative Months: %s)" % [f1_growth_number, selected_company.months_without_growth]
 	f1_growth.set("custom_colors/font_color", positive_negative_color(selected_company.growth))
 
 
@@ -408,7 +453,7 @@ func update_f1_outlets():
 		outlet_tree_item.set_text(0, outlet.location.name)
 		outlet_tree_item.set_text(1, String(outlet.lot_id + 1))
 		outlet_tree_item.set_text(2, "%s/%s" % [outlet.customers, outlet.max_customers])
-		outlet_tree_item.set_text(3, money_string(outlet.net_worth))
+		outlet_tree_item.set_text(3, money_string(outlet.location.revenue))
 		for i in range(4):
 			outlet_tree_item.set_tooltip(i, "Click to select the Mall this Outlet is in.")
 		for i in range(2,3):
@@ -429,6 +474,36 @@ func update_mall_viewer():
 		
 		for i in range(6):
 			mall_viewer_lots.get_child(i).show_outlet(selected_mall, selected_mall.lots[i])
+
+
+func update_date_stamp(month, year):
+	var month_name = "Unknown Month"
+	match month:
+		1:
+			month_name = "January"
+		2:
+			month_name = "February"
+		3:
+			month_name = "March"
+		4:
+			month_name = "April"
+		5:
+			month_name = "May"
+		6:
+			month_name = "June"
+		7:
+			month_name = "July"
+		8:
+			month_name = "August"
+		9:
+			month_name = "September"
+		10:
+			month_name = "October"
+		11:
+			month_name = "November"
+		12:
+			month_name = "December"
+	date_stamp.text = "%s %s" % [month_name, year]
 
 
 func select_mall(mall):
@@ -489,6 +564,15 @@ static func signed_money_string(dollars):
 		return "$0"
 
 
+static func percentile_string(number):
+	number *= 1000
+	number = round(number)
+	var cents = int(number) % 10
+	number /= 10.0
+	number = int(number)
+	return "%s.%s%%" % [comma_sep(abs(number)), leading_zeroes(abs(cents), 1)]
+
+
 static func signed_percentile_string(number):
 	number *= 1000
 	number = round(number)
@@ -519,3 +603,7 @@ static func leading_zeroes(number, length):
 	while res.length() < length:
 		res = res.insert(0, "0")
 	return res
+
+
+func _on_Next_Month_Button_pressed():
+	emit_signal("Next_Month_Button_pressed")
