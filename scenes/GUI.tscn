@@ -62,6 +62,12 @@ date_stamp_path = NodePath("Bottom Right Panel/Margin/VBoxContainer/HBoxContaine
 time_stamp_path = NodePath("Bottom Right Panel/Margin/VBoxContainer/HBoxContainer/Time Stamp")
 rename_dialog_path = NodePath("Rename Dialog")
 rename_dialog_text_path = NodePath("Rename Dialog/VBoxContainer/LineEdit")
+event_dialog_path = NodePath("Event Dialog")
+event_text_path = NodePath("Event Dialog/VBoxContainer/Event Text")
+event_effects_path = NodePath("Event Dialog/VBoxContainer/Event Effects")
+sabotage_dialog_path = NodePath("Sabotage Dialog")
+sabotage_text_path = NodePath("Sabotage Dialog/VBoxContainer/Sabotage Text")
+sabotage_effects_path = NodePath("Sabotage Dialog/VBoxContainer/Sabotage Effects")
 f1_income_tree_sales_tooltip = "Sales Income is earned every month from each Customer at each of a Company's Outlets."
 f1_income_tree_liquidation_tooltip = "Liquidation Income is earned when selling assets such as Outlets."
 f1_income_tree_other_tooltip = "Other Income sources include Sabotage and random Events."
@@ -108,6 +114,7 @@ texture_normal = ExtResource( 5 )
 script = ExtResource( 4 )
 
 [node name="Top Right Panel" type="PanelContainer" parent="."]
+editor/display_folded = true
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -225.0
@@ -263,7 +270,6 @@ custom_fonts/font = SubResource( 2 )
 text = "Your Company"
 
 [node name="Stats" type="GridContainer" parent="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing"]
-editor/display_folded = true
 margin_top = 78.0
 margin_right = 472.0
 margin_bottom = 122.0
@@ -316,7 +322,7 @@ align = 2
 margin_top = 24.0
 margin_right = 104.0
 margin_bottom = 44.0
-hint_tooltip = "The total value of a Company's Cash, Outlets, and Loans."
+hint_tooltip = "The total value of a Company's Cash and Outlets."
 mouse_filter = 0
 text = "Net Worth:"
 
@@ -325,7 +331,7 @@ margin_left = 120.0
 margin_top = 24.0
 margin_right = 224.0
 margin_bottom = 44.0
-hint_tooltip = "The total value of a Company's Cash, Outlets, and Loans."
+hint_tooltip = "The total value of a Company's Cash and Outlets."
 mouse_filter = 0
 text = "NaN"
 align = 2
@@ -377,7 +383,7 @@ margin_bottom = 200.0
 margin_right = 472.0
 margin_bottom = 26.0
 hint_tooltip = "Attempt to Sabotage this Company's operations. This will increase your Suspicion and trigger a random opportunity."
-text = "Sabotage"
+text = "Look for Sabotage Opportunity (+0.1 Suspicion)"
 
 [node name="Tabs" type="TabContainer" parent="Left Side Menu/Company/VSplitContainer"]
 margin_top = 224.0
@@ -507,43 +513,8 @@ margin_top = 8.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Rename Dialog" type="AcceptDialog" parent="."]
-editor/display_folded = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -186.5
-margin_top = -74.0
-margin_right = 186.5
-margin_bottom = 74.0
-window_title = "Rename"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Rename Dialog"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -42.0
-custom_constants/separation = 16
-alignment = 1
-
-[node name="Label" type="Label" parent="Rename Dialog/VBoxContainer"]
-margin_top = 16.0
-margin_right = 357.0
-margin_bottom = 36.0
-text = "Enter a new name."
-align = 1
-
-[node name="LineEdit" type="LineEdit" parent="Rename Dialog/VBoxContainer"]
-margin_top = 52.0
-margin_right = 357.0
-margin_bottom = 82.0
-text = "Chicken Rice Nation"
-align = 1
-
 [node name="Mall Viewer" type="PanelContainer" parent="."]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = -6.0
@@ -708,6 +679,7 @@ margin_bottom = 368.0
 lot_id = 6
 
 [node name="Bottom Right Panel" type="PanelContainer" parent="."]
+editor/display_folded = true
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -753,6 +725,123 @@ margin_bottom = 87.0
 hint_tooltip = "Click to advance to the next month and begin a new turn."
 size_flags_vertical = 3
 text = "Next Month (Spacebar)"
+
+[node name="Rename Dialog" type="AcceptDialog" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -186.5
+margin_top = -74.0
+margin_right = 186.5
+margin_bottom = 74.0
+window_title = "Rename"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Rename Dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -42.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="Rename Dialog/VBoxContainer"]
+margin_top = 16.0
+margin_right = 357.0
+margin_bottom = 36.0
+text = "Enter a new name."
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="Rename Dialog/VBoxContainer"]
+margin_top = 52.0
+margin_right = 357.0
+margin_bottom = 82.0
+text = "Chicken Rice Nation"
+align = 1
+
+[node name="Event Dialog" type="AcceptDialog" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -204.5
+margin_top = -109.0
+margin_right = 204.5
+margin_bottom = 109.0
+window_title = "Event"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Event Dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -42.0
+
+[node name="Event Text" type="Label" parent="Event Dialog/VBoxContainer"]
+margin_top = 8.0
+margin_right = 393.0
+margin_bottom = 74.0
+size_flags_vertical = 6
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Event Effects" type="Label" parent="Event Dialog/VBoxContainer"]
+margin_top = 117.0
+margin_right = 393.0
+margin_bottom = 137.0
+size_flags_vertical = 6
+text = "Cash +5000"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Sabotage Dialog" type="ConfirmationDialog" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -204.5
+margin_top = -109.0
+margin_right = 204.5
+margin_bottom = 109.0
+popup_exclusive = true
+window_title = "Sabotage Opportunity"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sabotage Dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -42.0
+
+[node name="Sabotage Text" type="Label" parent="Sabotage Dialog/VBoxContainer"]
+margin_top = 8.0
+margin_right = 393.0
+margin_bottom = 74.0
+size_flags_vertical = 6
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Sabotage Effects" type="Label" parent="Sabotage Dialog/VBoxContainer"]
+margin_top = 117.0
+margin_right = 393.0
+margin_bottom = 137.0
+size_flags_vertical = 6
+text = "Cash +5000"
+align = 1
+valign = 1
+autowrap = true
 [connection signal="mouse_entered" from="Top Left Panel/Margins/Menu Buttons/F1" to="Top Left Panel/Margins/Menu Buttons/F1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Top Left Panel/Margins/Menu Buttons/F1" to="Top Left Panel/Margins/Menu Buttons/F1" method="_on_mouse_exited"]
 [connection signal="pressed" from="Top Left Panel/Margins/Menu Buttons/F1" to="." method="_on_menu_button" binds= [ 0 ]]
@@ -760,7 +849,9 @@ text = "Next Month (Spacebar)"
 [connection signal="mouse_exited" from="Top Left Panel/Margins/Menu Buttons/F2" to="Top Left Panel/Margins/Menu Buttons/F2" method="_on_mouse_exited"]
 [connection signal="pressed" from="Top Left Panel/Margins/Menu Buttons/F2" to="." method="_on_menu_button" binds= [ 1 ]]
 [connection signal="pressed" from="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/CompanyInfo/VBoxContainer/NameRow/RenameButton" to="." method="_on_RenameButton_pressed"]
+[connection signal="pressed" from="Left Side Menu/Company/VSplitContainer/Main Window (Scrollbars)/Main Window Item Listing/Interaction Buttons/Sabotage Button" to="." method="_on_Sabotage_Button_pressed"]
 [connection signal="cell_selected" from="Left Side Menu/Company/VSplitContainer/Tabs/Outlets/ScrollContainer/Outlet Tree" to="." method="_on_f1_outlet_tree_cell_selected"]
-[connection signal="confirmed" from="Rename Dialog" to="." method="_on_rename"]
 [connection signal="gui_input" from="Mall Viewer/Margins/Info/Mall Name" to="." method="_on_Mall_Name_gui_input"]
 [connection signal="pressed" from="Bottom Right Panel/Margin/VBoxContainer/Next Month Button" to="." method="_on_Next_Month_Button_pressed"]
+[connection signal="confirmed" from="Rename Dialog" to="." method="_on_rename"]
+[connection signal="confirmed" from="Sabotage Dialog" to="." method="_on_Sabotage_Dialog_confirmed"]

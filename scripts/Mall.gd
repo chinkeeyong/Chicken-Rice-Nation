@@ -6,7 +6,7 @@ export var rent = 5000.0 # Average value assuming slightly under 1000 sq ft.
 export var revenue = 1000.0
 export var use_custom_revenue = false
 export var prestige = 5.0
-export var customers = 40
+export var customers = 35
 
 var press_color = Color(0.8, 0.8, 0.8)
 

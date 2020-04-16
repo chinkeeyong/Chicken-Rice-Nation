@@ -126,3 +126,15 @@ func set_cash(new_value):
 func set_suspicion(new_value):
 	suspicion = new_value
 	emit_signal("suspicion_changed")
+
+func add_income_other(amount):
+	cash += amount
+	income_other += amount
+	calc_net_worth()
+	calc_growth()
+
+func add_expenditure_other(amount):
+	cash += amount
+	expenditure_other += amount
+	calc_net_worth()
+	calc_growth()

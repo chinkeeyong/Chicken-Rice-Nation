@@ -105,6 +105,8 @@ func next_month():
 					outlet_weights[i] += mall.lots[i].get_parent().brand_strength * CUSTOMER_BRAND_STRENGTH_WEIGHT
 					if mall.lots[i].get_parent().brand_strength < mall.prestige:
 						outlet_weights[i] /= 2
+					if outlet_weights[i] < 0:
+						outlet_weights[i] = 0.0
 				sum_of_weights += outlet_weights[i]
 			
 			var random_choice = rand_range(0.0, sum_of_weights)
@@ -118,6 +120,13 @@ func next_month():
 	
 	for company in companies:
 		company.monthly_tick()
+	
+	# Events
+	randomize()
+	if randf() * 50 < player_company.suspicion:
+		gui.suspicion_penalty_event()
+	elif randf() < 0.05:
+		gui.random_event()
 	
 	gui.update_f1()
 	gui.update_mall_viewer()

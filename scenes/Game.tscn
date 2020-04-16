@@ -1189,7 +1189,7 @@ maximum_seed_prestige = 20.0
 cash = 100000.0
 
 [node name="Bengawan Yolo" parent="Companies" instance=ExtResource( 5 )]
-subtitle = "Ramen You Can Sharpen a Katana On"
+subtitle = "Local Cake Shop"
 logo = ExtResource( 54 )
 brand_strength = 20.0
 seed_count = 15
@@ -3192,7 +3192,6 @@ rent = 35000.0
 prestige = 50.0
 
 [node name="GUI Canvas Layer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="GUI" parent="GUI Canvas Layer" instance=ExtResource( 61 )]
 visible = false

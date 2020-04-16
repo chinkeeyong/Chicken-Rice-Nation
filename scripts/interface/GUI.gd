@@ -79,6 +79,20 @@ var rename_dialog
 export(NodePath) var rename_dialog_text_path
 var rename_dialog_text
 
+export(NodePath) var event_dialog_path
+var event_dialog
+export(NodePath) var event_text_path
+var event_text
+export(NodePath) var event_effects_path
+var event_effects
+
+export(NodePath) var sabotage_dialog_path
+var sabotage_dialog
+export(NodePath) var sabotage_text_path
+var sabotage_text
+export(NodePath) var sabotage_effects_path
+var sabotage_effects
+
 export(NodePath) var player_company_path
 var player_company
 
@@ -92,6 +106,7 @@ var total_outlets
 var selected_company
 var selected_mall
 var renamed_company
+var current_sabotage_event
 
 const POSITIVE_MODIFIER_COLOR = Color(0.5, 1.0, 0.5)
 const NEGATIVE_MODIFIER_COLOR = Color(1.0, 0.5, 0.5)
@@ -152,6 +167,14 @@ func _ready():
 	
 	rename_dialog = get_node(rename_dialog_path)
 	rename_dialog_text = get_node(rename_dialog_text_path)
+	
+	event_dialog = get_node(event_dialog_path)
+	event_text = get_node(event_text_path)
+	event_effects = get_node(event_effects_path)
+	
+	sabotage_dialog = get_node(sabotage_dialog_path)
+	sabotage_text = get_node(sabotage_text_path)
+	sabotage_effects = get_node(sabotage_effects_path)
 	
 	player_company = get_node(player_company_path)
 	player_company.connect("cash_changed", self, "_on_player_cash_changed")
@@ -299,6 +322,19 @@ func _on_f1_outlet_tree_cell_selected():
 	camera.target_position = selected_mall.rect_position
 	for i in range(4):
 		selected_cell.deselect(i)
+
+
+func _on_Next_Month_Button_pressed():
+	emit_signal("Next_Month_Button_pressed")
+
+
+func _on_Sabotage_Button_pressed():
+	player_company.suspicion += 0.1
+	offer_sabotage()
+
+
+func _on_Sabotage_Dialog_confirmed():
+	confirm_sabotage()
 
 
 func construct_f1_income_tree():
@@ -521,6 +557,132 @@ func select_mall(mall):
 		mall_viewer.hide()
 
 
+func random_event():
+	randomize()
+	var id = randi() % 8
+	match id:
+		0:
+			var cash_lost = player_company.income / 2
+			player_company.add_expenditure_other(-cash_lost)
+			event_dialog.window_title = "Supplier Shipment Lost"
+			event_text.text = "One of your supplier's shipping vessels was involved in an accident. You've been forced to make up for the shortfall by buying at a markup."
+			event_effects.text = "Cash -$%s" % cash_lost
+		1:
+			player_company.suspicion += 1
+			player_company.brand_strength -= 0.5
+			event_dialog.window_title = "Outlet Scandal"
+			event_text.text = "One of your outlets was revealed to have cockroaches on social media. The incident has your marketing department scrambling for damage control."
+			event_effects.text = "Suspicion +1\nBrand Strength -0.5"
+		2:
+			player_company.brand_strength += 1
+			event_dialog.window_title = "Viral Video"
+			event_text.text = "Thanks to some questionable voice acting, one of your advertisements has gone viral on YouTube. This has significantly cemented your brand in the public consciousness."
+			event_effects.text = "Brand Strength +1"
+		3:
+			var cash_gained = player_company.income / 5
+			player_company.add_income_other(cash_gained)
+			event_dialog.window_title = "Investment Returns"
+			event_text.text = "You have used some of your company funds to make long-term investments. Recently, your investments have really begun to pay off."
+			event_effects.text = "Cash +$%s" % cash_gained
+		4:
+			var cash_lost = player_company.income
+			player_company.add_expenditure_other(-cash_lost)
+			event_dialog.window_title = "Recession"
+			event_text.text = "A collapsing bubble has caused global markets to go on the downturn. Your business has suffered severely and been forced to lay off many employees."
+			event_effects.text = "Cash -$%s" % cash_lost
+		5:
+			player_company.suspicion += 1
+			event_dialog.window_title = "Media Scrutiny"
+			event_text.text = "A journalist has written a series of articles about the alleged poor hygiene in your stores. While nothing is provable, your company has come under scrutiny."
+			event_effects.text = "Suspicion +1"
+		6:
+			var cash_lost = player_company.expenditure / 2
+			player_company.add_expenditure_other(cash_lost)
+			event_dialog.window_title = "Outlet Repairs"
+			event_text.text = "One of your outlets was revealed to have serious structural safety issues. Although the mall quickly resolved the issue, you were forced to remodel the outlet at company cost."
+			event_effects.text = "Cash -$%s" % abs(cash_lost)
+		7:
+			player_company.brand_strength -= 5
+			event_dialog.window_title = "Employee Scandal"
+			event_text.text = "A group of disgruntled employees spoke out against alleged harassment in your company. While you were able to win the lawsuit, your reputation has taken a serious hit."
+			event_effects.text = "Brand Strength -5"
+		_:
+			event_dialog.window_title = "Invalid Event"
+			event_text.text = "Bad event id"
+			event_effects.text = ""
+	event_dialog.popup_centered()
+
+
+func offer_sabotage():
+	randomize()
+	current_sabotage_event = randi() % 6
+	match current_sabotage_event:
+		0:
+			sabotage_text.text = "You can hire thugs to vandalize the company's property and destroy their machinery. This will likely cost them a fortune in repairs."
+			sabotage_effects.text = "Your Suspicion +1\nYour Cash -$500\nTheir Cash -$5000"
+		1:
+			sabotage_text.text = "You can pay a group of hackers to vandalize the company's social media pages and spread damaging rumors about their business practices."
+			sabotage_effects.text = "Your Suspicion +1\nYour Cash -$5000\nTheir Brand Strength -5"
+		2:
+			sabotage_text.text = "You can plant cockroach and fly eggs in a corner of the company's outlet to damage their reputation."
+			sabotage_effects.text = "Your Suspicion +1\nYour Cash -$2500\nTheir Brand Strength -5"
+		3:
+			sabotage_text.text = "You can hire a corporate spy to doctor the company's finances and siphon their funds to your company."
+			sabotage_effects.text = "Your Suspicion +5\nYour Cash +$5000\nTheir Cash -$10000"
+		4:
+			sabotage_text.text = "You can attempt to assassinate one of the company's key decision makers, sending their organization into disarray."
+			sabotage_effects.text = "Your Suspicion +5\nYour Cash -$5000\nTheir Cash -20% of Total\nTheir Brand Strength -5"
+		5:
+			sabotage_text.text = "You have uncovered documents that will allow you to blackmail and harass one of the company's managers into resigning."
+			sabotage_effects.text = "Your Suspicion +1\nTheir Brand Strength -5"
+		_:
+			sabotage_dialog.window_title = "Invalid Event"
+			sabotage_text.text = "Bad event id"
+			sabotage_effects.text = ""
+	sabotage_dialog.popup_centered()
+
+
+func confirm_sabotage():
+	match current_sabotage_event:
+		0:
+			player_company.suspicion += 1
+			player_company.add_expenditure_other(-500)
+			selected_company.add_expenditure_other(-5000)
+		1:
+			player_company.suspicion += 1
+			player_company.add_expenditure_other(-5000)
+			selected_company.brand_strength -= 5
+		2:
+			player_company.suspicion += 1
+			player_company.add_expenditure_other(-2500)
+			selected_company.brand_strength -= 5
+		3:
+			player_company.suspicion += 5
+			player_company.add_income_other(5000)
+			selected_company.add_expenditure_other(-10000)
+		4:
+			player_company.suspicion += 5
+			player_company.add_expenditure_other(-5000)
+			selected_company.add_expenditure_other(-abs(selected_company.cash) / 5)
+			selected_company.brand_strength -= 5
+		5:
+			player_company.suspicion += 1
+			selected_company.brand_strength -= 5
+	update_f1()
+	update_mall_viewer()
+
+
+func suspicion_penalty_event():
+	var cash_lost = int(player_company.income * player_company.suspicion / 10)
+	if cash_lost < 5000:
+		cash_lost = 5000
+	player_company.add_expenditure_other(-cash_lost)
+	event_dialog.window_title = "Excessive Suspicion"
+	event_text.text = "Your company is being investigated for unethical business practices and you are being forced to spend an exorbitant amount on legal defense costs."
+	event_effects.text = "Cash -$%s" % cash_lost
+	event_dialog.popup_centered()
+
+
 # warning-ignore:unused_argument
 static func to_1_significant_digit(number):
 	number *= 10
@@ -603,7 +765,3 @@ static func leading_zeroes(number, length):
 	while res.length() < length:
 		res = res.insert(0, "0")
 	return res
-
-
-func _on_Next_Month_Button_pressed():
-	emit_signal("Next_Month_Button_pressed")
